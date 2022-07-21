@@ -12,7 +12,7 @@ export const Card: React.FC<CardProps> = ({ type, createLightIcon, toDoList }) =
   switch (type) {
     case 'TO DO':
       return (
-        <>
+        <div>
           <span className='tag bg-primary-700'>{type}</span>
           <div className='-mt-2 flex w-[360px] flex-col gap-y-2 bg-white px-8 py-4 shadow-md shadow-primary-200'>
             <div className='text-right'>
@@ -25,11 +25,11 @@ export const Card: React.FC<CardProps> = ({ type, createLightIcon, toDoList }) =
               </div>
             ))}
           </div>
-        </>
+        </div>
       );
     case 'COMPLETED':
       return (
-        <>
+        <div>
           <span className='tag bg-pink-700'>{type}</span>
           <div className='-mt-2 flex w-[360px] flex-col gap-y-2 bg-white px-8 py-4 shadow-md shadow-primary-200'>
             <div className='text-right'>
@@ -44,7 +44,7 @@ export const Card: React.FC<CardProps> = ({ type, createLightIcon, toDoList }) =
               </div>
             ))}
           </div>
-        </>
+        </div>
       );
   }
 };
