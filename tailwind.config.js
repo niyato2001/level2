@@ -1,6 +1,11 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    fontFamily: {
+      sans: ['"Yu Gothic"', ...defaultTheme.fontFamily.sans],
+    },
     fontWeight: {
       light: 300,
       normal: 400,
