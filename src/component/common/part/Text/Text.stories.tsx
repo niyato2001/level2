@@ -52,3 +52,15 @@ FilledCheckBox.args = {
     </div>
   ),
 };
+
+export const FilledCheckBoxHighLight = Template.bind({});
+FilledCheckBoxHighLight.args = {
+  children: (
+    <div className='flex items-center gap-x-3'>
+      <div className='flex h-4 w-4 items-center  bg-primary-700 text-white'>
+        <span>✓</span>
+      </div>
+      <span className='highlight text-sm font-bold text-primary-700'>text-sm</span>
+    </div>
+  ),
+};

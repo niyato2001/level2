@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.highlight {
+  @apply underline decoration-primary-700;
+}
