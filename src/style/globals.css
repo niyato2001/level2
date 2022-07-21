@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.highlight {
+  @apply underline decoration-primary-700;
+}
+.tag {
+  @apply rounded-sm px-2 py-1 text-sm text-white;
+}
+.btn {
+  @apply rounded-sm px-4 py-2 text-sm text-white;
+}
+.green-gradient {
+  @apply bg-gradient-to-r from-primary-800 to-primary-500 hover:opacity-70;
+}
+.pink-gradient {
+  @apply bg-gradient-to-r from-pink-800 to-pink-600 hover:opacity-70;
+}
+.form {
+  @apply h-10 w-80 rounded-md border-2 border-primary-700 px-2 text-primary-800 focus:border-primary-200 focus:outline-none;
+}
