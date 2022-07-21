@@ -17,3 +17,6 @@
 .pink-gradient {
   @apply bg-gradient-to-r from-pink-800 to-pink-600 hover:opacity-70;
 }
+.form {
+  @apply h-10 w-80 rounded-md border-2 border-primary-700 px-2 text-primary-800 focus:border-primary-200 focus:outline-none;
+}
