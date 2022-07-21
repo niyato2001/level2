@@ -5,3 +5,6 @@
 .highlight {
   @apply underline decoration-primary-700;
 }
+.tag {
+  @apply rounded-sm px-2 py-1 text-sm text-white;
+}
