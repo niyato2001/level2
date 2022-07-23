@@ -13,6 +13,7 @@ module.exports = {
       extrabold: 700,
     },
     colors: {
+      transparent: 'transparent',
       primary: {
         50: '#F5FAFA',
         100: '#E0F1F1',
@@ -51,5 +52,5 @@ module.exports = {
     },
     extend: {},
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 };
