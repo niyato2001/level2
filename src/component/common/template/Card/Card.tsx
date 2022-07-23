@@ -19,7 +19,6 @@ export const Card: React.FC<CardProps> = ({ type, createLightIcon, toDoList }) =
   const [toDos, setToDos] = useState<ToDoListProps[]>(initialToDos);
   const handleClick = () => {
     setToDos([...toDos, { title: '新規', isCompleted: false }]);
-    console.log(toDos);
   };
 
   switch (type) {
