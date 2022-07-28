@@ -13,8 +13,8 @@ export const DescriptionModal: React.FC<DescriptionModalProps> = ({
   title,
   description,
 }) => (
-  <div className='fixed top-0 left-0 flex h-full w-full items-center justify-center bg-primary-50 opacity-90 '>
-    <div className='w-80 p-4 font-bold text-primary-800 shadow-sm shadow-primary-200'>
+  <div className='fixed top-24 left-0 flex h-full w-full items-center justify-center bg-primary-50 opacity-90 '>
+    <div className='w-80 p-4 font-bold bg-white text-primary-800 shadow-sm shadow-primary-200'>
       <div className='mb-4 text-right'>
         <Icon {...deleteDeepIcon} />
       </div>
