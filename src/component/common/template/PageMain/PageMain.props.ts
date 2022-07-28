@@ -1,9 +1,12 @@
 import { toDoProps, completedProps } from '../Card/Card.props';
+import { defaultProps as descriptionModalProps } from '../DescriptionModal/DescriptionModal.props';
+
 import { PageMainProps } from './PageMain';
 
 const defaultProps: PageMainProps = {
   toDoCard: toDoProps,
   completedCard: completedProps,
+  descriptionModal: descriptionModalProps,
 };
 
 /**
