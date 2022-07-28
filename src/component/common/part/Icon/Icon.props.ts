@@ -23,8 +23,8 @@ export const createLightProps: IconProps = {
 export const deleteDeepProps: IconProps = {
   type: 'delete-deep',
   src: DeleteDeepImage,
-  width: 30,
-  height: 30,
+  width: 20,
+  height: 20,
 };
 
 export const deleteLightProps: IconProps = {
