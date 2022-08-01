@@ -6,15 +6,23 @@ interface UseModalReturnType {
   modal: ModalProps;
   descriptionClick: () => void;
   clearModal: () => void;
+  createClick: () => void;
+  updateClick: () => void;
 }
 
 export const useModal = (): UseModalReturnType => {
   const [modal, setModal] = useState<ModalProps>('');
-  const descriptionClick = (): void => {
+  const descriptionClick = () => {
     setModal('description');
   };
-  const clearModal = (): void => {
+  const clearModal = () => {
     setModal('');
   };
-  return { modal, descriptionClick, clearModal };
+  const createClick = () => {
+    setModal('create');
+  };
+  const updateClick = () => {
+    setModal('update');
+  };
+  return { modal, descriptionClick, clearModal, createClick, updateClick };
 };
