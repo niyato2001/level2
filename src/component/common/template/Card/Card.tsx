@@ -1,26 +1,15 @@
-import { useState } from 'react';
 import { Icon, IconProps } from '@/component/common/part/Icon';
-
-interface ToDoListProps {
-  title: string;
-  isCompleted: boolean;
-}
+import { useTodos } from '@/hook/useTodos';
 
 export interface CardProps {
   type: 'TO DO' | 'COMPLETED';
   createLightIcon: IconProps;
-  toDoList: ToDoListProps[];
 }
 
 export const baseId = 'common-template-card';
 
-export const Card: React.FC<CardProps> = ({ type, createLightIcon, toDoList }) => {
-  const initialToDos: ToDoListProps[] = [...toDoList];
-  const [toDos, setToDos] = useState<ToDoListProps[]>(initialToDos);
-  const handleClick = () => {
-    setToDos([...toDos, { title: '新規', isCompleted: false }]);
-  };
-
+export const Card: React.FC<CardProps> = ({ type, createLightIcon }) => {
+  const { toDos, handleClick } = useTodos();
   switch (type) {
     case 'TO DO':
       return (
