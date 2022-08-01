@@ -4,7 +4,7 @@ export interface DescriptionModalProps {
   deleteDeepIcon: IconProps;
   title: string;
   description: string[];
-  clearModal: () => void;
+  clearModal?: () => void;
 }
 
 export const baseId = 'common-template-description-modal';
@@ -15,7 +15,7 @@ export const DescriptionModal: React.FC<DescriptionModalProps> = ({
   description,
   clearModal,
 }) => (
-  <div className='absolute top-0 left-0 flex h-full w-full items-center justify-center bg-primary-50 opacity-90 '>
+  <div className='absolute top-0 left-0 flex h-full w-full items-center justify-center bg-primary-50/90'>
     <div className='w-80 bg-white p-4 font-bold text-primary-800 shadow-sm shadow-primary-200'>
       <div className='mb-4 flex justify-end'>
         <button className='justify-self-end' onClick={clearModal}>

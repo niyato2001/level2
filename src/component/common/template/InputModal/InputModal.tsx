@@ -5,6 +5,7 @@ export interface InputModalProps {
   deleteDeepIcon: IconProps;
   title: string;
   description: string;
+  clearModal?: () => void;
 }
 
 export const baseId = 'common-template-input-modal';
@@ -14,14 +15,17 @@ export const InputModal: React.FC<InputModalProps> = ({
   deleteDeepIcon,
   title,
   description,
+  clearModal,
 }) => {
   switch (type) {
     case 'create':
       return (
-        <div className='absolute top-0 left-0 flex h-full w-full items-center justify-center bg-primary-50 opacity-90 '>
+        <div className='absolute top-0 left-0 flex h-full w-full items-center justify-center bg-primary-50/90 '>
           <div className='w-80 bg-white p-4 font-bold text-primary-800 shadow-sm shadow-primary-200'>
-            <div className='mb-4 text-right'>
-              <Icon {...deleteDeepIcon} />
+            <div className='mb-4 flex justify-end'>
+              <button className='justify-self-end' onClick={clearModal}>
+                <Icon {...deleteDeepIcon} />
+              </button>
             </div>
             <div className='mx-auto px-8'>
               <div className='flex flex-col gap-y-4'>
@@ -37,10 +41,12 @@ export const InputModal: React.FC<InputModalProps> = ({
       );
     case 'update':
       return (
-        <div className='absolute top-0 left-0 flex h-full w-full items-center justify-center bg-primary-50 opacity-90 '>
+        <div className='absolute top-0 left-0 flex h-full w-full items-center justify-center bg-primary-50/90'>
           <div className='w-80 bg-white p-4 font-bold text-primary-800 shadow-sm shadow-primary-200'>
-            <div className='mb-4 text-right'>
-              <Icon {...deleteDeepIcon} />
+            <div className='mb-4 flex justify-end'>
+              <button className='justify-self-end' onClick={clearModal}>
+                <Icon {...deleteDeepIcon} />
+              </button>
             </div>
             <div className='mx-auto px-8'>
               <div className='flex flex-col gap-y-4'>
