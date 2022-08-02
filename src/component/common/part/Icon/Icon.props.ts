@@ -3,44 +3,44 @@ import CreateDeepImage from '~/icon/create-deep.png';
 import CreateLightImage from '~/icon/create-light.png';
 import DeleteDeepImage from '~/icon/delete-deep.png';
 import DeleteLightImage from '~/icon/delete-light.png';
-import SymbolLogoImage from '~/icon/fwywd-symbol.png';
-import TextLogoImage from '~/icon/fwywd-text.png';
+import SymbolLogoImage from '~/icon/fwywd-symbol.svg';
+import TextLogoImage from '~/icon/fwywd-text.svg';
 
-const createDeepProps: IconProps = {
+export const createDeepProps: IconProps = {
   type: 'create-deep',
   src: CreateDeepImage,
   width: 30,
   height: 30,
 };
 
-const createLightProps: IconProps = {
+export const createLightProps: IconProps = {
   type: 'create-light',
   src: CreateLightImage,
   width: 30,
   height: 30,
 };
 
-const deleteDeepProps: IconProps = {
+export const deleteDeepProps: IconProps = {
   type: 'delete-deep',
   src: DeleteDeepImage,
-  width: 30,
-  height: 30,
+  width: 20,
+  height: 20,
 };
 
-const deleteLightProps: IconProps = {
+export const deleteLightProps: IconProps = {
   type: 'delete-light',
   src: DeleteLightImage,
   width: 30,
   height: 30,
 };
 
-const symbolLogoProps: IconProps = {
+export const symbolLogoProps: IconProps = {
   type: 'symbol-logo',
   src: SymbolLogoImage,
   width: 60,
   height: 60,
 };
-const textLogoProps: IconProps = {
+export const textLogoProps: IconProps = {
   type: 'text-logo',
   src: TextLogoImage,
   width: 80,
