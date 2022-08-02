@@ -20,7 +20,8 @@ export const useTodos = (): UseTodosReturnType => {
   const initialToDos = [...toDoList];
   const [toDos, setToDos] = useState<ToDoProps[]>(initialToDos);
   const handleClick = () => {
-    setToDos([...toDos, { title: '新規', isCompleted: false, description: '新規' }]);
+    const newToDos = [...toDos];
+    setToDos([...newToDos, { title: '新規', isCompleted: false, description: '新規' }]);
   };
   return { toDos, handleClick };
 };

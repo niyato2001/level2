@@ -4,24 +4,26 @@ import { useFormState } from '@/hook/useFormState';
 export interface InputModalProps {
   type: 'create' | 'update';
   deleteDeepIcon: IconProps;
-  clearModal?: () => void;
-  addClick?: () => void;
-  modifyClick?: () => void;
+}
+
+export interface InputModalFcProps extends InputModalProps {
+  clearModal: () => void;
+  handleClick: () => void;
 }
 
 export const baseId = 'common-template-input-modal';
 
-export const InputModal: React.FC<InputModalProps> = ({
+export const InputModal: React.FC<InputModalFcProps> = ({
   type,
   deleteDeepIcon,
   clearModal,
-  addClick,
-  modifyClick,
+  handleClick,
 }) => {
   // PageMainでformStateの管理をすると、InputModalを消したあとに再び開くとformStateが維持されているがInputModalで管理するとModalを消すと消える。
   // PageMainでformStateの管理をすると、InputModalにバケツリレーするが、その際にInputModalPropsでhandleInput?:とオプショナルを指定すると、undefinedとなりInputModal.propsの中身と齟齬が生じる
   // 結果としてInputModalで状態管理をすることとした。
   const { formState, handleInput } = useFormState();
+
   switch (type) {
     case 'create':
       return (
@@ -51,7 +53,7 @@ export const InputModal: React.FC<InputModalProps> = ({
                   />
                 </form>
                 <div className='text-right'>
-                  <button className='btn green-gradient' onClick={addClick}>
+                  <button className='btn green-gradient' onClick={handleClick}>
                     新規追加
                   </button>
                 </div>
@@ -74,7 +76,7 @@ export const InputModal: React.FC<InputModalProps> = ({
                 <div className='text-lg'>タイトル</div>
                 内容
                 <div className='text-right'>
-                  <button className='btn green-gradient' onClick={modifyClick}>
+                  <button className='btn green-gradient' onClick={handleClick}>
                     更新
                   </button>
                 </div>

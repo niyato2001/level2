@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, Dispatch, SetStateAction } from 'react';
 
-type ModalProps = 'description' | 'create' | 'update' | 'delete' | '';
+export type ModalProps = 'description' | 'create' | 'update' | 'delete' | '';
 
 interface UseModalReturnType {
+  setModal: Dispatch<SetStateAction<ModalProps>>;
   modal: ModalProps;
   descriptionClick: () => void;
   clearModal: () => void;
@@ -24,5 +25,5 @@ export const useModal = (): UseModalReturnType => {
   const updateClick = () => {
     setModal('update');
   };
-  return { modal, descriptionClick, clearModal, createClick, updateClick };
+  return { setModal, modal, descriptionClick, clearModal, createClick, updateClick };
 };
