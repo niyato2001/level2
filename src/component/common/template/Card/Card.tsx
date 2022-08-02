@@ -1,15 +1,19 @@
 import { Icon, IconProps } from '@/component/common/part/Icon';
-import { useTodos } from '@/hook/useTodos';
+import { ToDoProps } from '@/hook/useTodos';
 
 export interface CardProps {
   type: 'TO DO' | 'COMPLETED';
   createLightIcon: IconProps;
 }
 
+export interface CardFcProps extends CardProps {
+  toDos: ToDoProps[];
+  handleClick: () => void;
+}
+
 export const baseId = 'common-template-card';
 
-export const Card: React.FC<CardProps> = ({ type, createLightIcon }) => {
-  const { toDos, handleClick } = useTodos();
+export const Card: React.FC<CardFcProps> = ({ type, createLightIcon, toDos, handleClick }) => {
   switch (type) {
     case 'TO DO':
       return (

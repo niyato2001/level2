@@ -1,11 +1,12 @@
-import { Card, CardProps } from '../Card/Card';
+import { Card, CardFcProps } from '../Card/Card';
 import { DescriptionModal, DescriptionModalProps } from '../DescriptionModal/DescriptionModal';
 import { InputModal, InputModalProps } from '../InputModal/InputModal';
 import { useModal } from '@/hook/useModal';
+import { useTodos } from '@/hook/useTodos';
 
 export interface PageMainProps {
-  toDoCard: CardProps;
-  completedCard: CardProps;
+  toDoCard: CardFcProps;
+  completedCard: CardFcProps;
   descriptionModal: DescriptionModalProps;
   createModal: InputModalProps;
   updateModal: InputModalProps;
@@ -21,11 +22,12 @@ export const PageMain: React.FC<PageMainProps> = ({
   updateModal,
 }) => {
   const { modal, descriptionClick, clearModal, createClick, updateClick } = useModal();
+  const { toDos, handleClick } = useTodos();
   return (
     <div className='relative flex w-[420px] flex-col gap-y-5 bg-primary-50 p-8'>
       <span className='text-lg font-bold text-primary-700'>For what you wanna do!!</span>
-      <Card {...toDoCard} />
-      <Card {...completedCard} />
+      <Card {...toDoCard} toDos={toDos} handleClick={createClick} />
+      <Card {...completedCard} toDos={toDos} handleClick={createClick} />
       <button className='btn green-gradient' onClick={descriptionClick}>
         description
       </button>
@@ -38,8 +40,12 @@ export const PageMain: React.FC<PageMainProps> = ({
       {modal === 'description' && (
         <DescriptionModal {...descriptionModal} clearModal={clearModal} />
       )}
-      {modal === 'create' && <InputModal {...createModal} clearModal={clearModal} />}
-      {modal === 'update' && <InputModal {...updateModal} clearModal={clearModal} />}
+      {modal === 'create' && (
+        <InputModal {...createModal} clearModal={clearModal} handleClick={handleClick} />
+      )}
+      {modal === 'update' && (
+        <InputModal {...updateModal} clearModal={clearModal} handleClick={handleClick} />
+      )}
     </div>
   );
 };
