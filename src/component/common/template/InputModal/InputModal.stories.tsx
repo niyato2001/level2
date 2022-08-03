@@ -1,5 +1,5 @@
 import type { ComponentMeta, Story } from '@storybook/react';
-import { InputModal, InputModalProps } from './InputModal';
+import { InputModal, InputModalFcProps } from './InputModal';
 import { propObj } from './InputModal.props';
 
 export default {
@@ -7,7 +7,7 @@ export default {
   component: InputModal,
 } as ComponentMeta<typeof InputModal>;
 
-const Template: Story<InputModalProps> = (args) => <InputModal {...args} />;
+const Template: Story<InputModalFcProps> = (args) => <InputModal {...args} />;
 
 export const Default = Template.bind({});
 Default.args = propObj.default;
