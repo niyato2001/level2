@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, Dispatch, SetStateAction } from 'react';
 import { ToDoProps } from '@/hook/useTodos';
 
 interface UseFormStateReturnType {
+  setFormState: Dispatch<SetStateAction<ToDoProps>>;
   formState: ToDoProps;
+  initialForm: ToDoProps;
   handleInput: (key: string, value: string) => void;
 }
 
@@ -14,5 +16,5 @@ export const useFormState = (): UseFormStateReturnType => {
     setFormState(newFormState);
     console.log(newFormState);
   };
-  return { formState, handleInput };
+  return { formState, setFormState, initialForm, handleInput };
 };

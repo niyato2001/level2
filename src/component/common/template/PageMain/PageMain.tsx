@@ -22,7 +22,7 @@ export const PageMain: React.FC<PageMainProps> = ({
   updateModal,
 }) => {
   const { modal, descriptionClick, clearModal, createClick, updateClick } = useModal();
-  const { toDos, handleClick } = useTodos();
+  const { toDos, setToDos } = useTodos();
   return (
     <div className='relative flex w-[420px] flex-col gap-y-5 bg-primary-50 p-8'>
       <span className='text-lg font-bold text-primary-700'>For what you wanna do!!</span>
@@ -41,10 +41,10 @@ export const PageMain: React.FC<PageMainProps> = ({
         <DescriptionModal {...descriptionModal} clearModal={clearModal} />
       )}
       {modal === 'create' && (
-        <InputModal {...createModal} clearModal={clearModal} handleClick={handleClick} />
+        <InputModal {...createModal} clearModal={clearModal} toDos={toDos} setToDos={setToDos} />
       )}
       {modal === 'update' && (
-        <InputModal {...updateModal} clearModal={clearModal} handleClick={handleClick} />
+        <InputModal {...updateModal} clearModal={clearModal} toDos={toDos} setToDos={setToDos} />
       )}
     </div>
   );

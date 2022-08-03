@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, Dispatch, SetStateAction } from 'react';
 
 export interface ToDoProps {
   title: string;
@@ -8,7 +8,7 @@ export interface ToDoProps {
 
 interface UseTodosReturnType {
   toDos: ToDoProps[];
-  handleClick: () => void;
+  setToDos: Dispatch<SetStateAction<ToDoProps[]>>;
 }
 
 const toDoList: ToDoProps[] = [
@@ -19,9 +19,6 @@ const toDoList: ToDoProps[] = [
 export const useTodos = (): UseTodosReturnType => {
   const initialToDos = [...toDoList];
   const [toDos, setToDos] = useState<ToDoProps[]>(initialToDos);
-  const handleClick = () => {
-    const newToDos = [...toDos];
-    setToDos([...newToDos, { title: '新規', isCompleted: false, description: '新規' }]);
-  };
-  return { toDos, handleClick };
+
+  return { toDos, setToDos };
 };
