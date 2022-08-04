@@ -9,19 +9,23 @@ export interface CardDataProps {
 export interface CardPresenterProps extends CardDataProps {
   toDos: ToDoProps[];
   handleClick: () => void;
+  descriptionClick: () => void;
 }
 
 export interface CardContainerProps {
   toDos: ToDoProps[];
   handleClick: () => void;
+  descriptionClick: () => void;
 }
 
 export interface CardProps extends CardDataProps {
   toDos: ToDoProps[];
   handleClick: () => void;
+  descriptionClick: () => void;
 }
 
 export interface LogicProps {
   toDos: ToDoProps[];
   handleClick: () => void;
+  descriptionClick: () => void;
 }

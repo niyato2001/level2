@@ -8,6 +8,7 @@ export const Card: React.FC<CardPresenterProps> = ({
   createLightIcon,
   toDos,
   handleClick,
+  descriptionClick,
 }) => {
   switch (type) {
     case 'TO DO':
@@ -31,7 +32,9 @@ export const Card: React.FC<CardPresenterProps> = ({
                       defaultChecked={toDo.isCompleted}
                     />
 
-                    <button className='font-bold text-primary-700'>{toDo.title}</button>
+                    <button className='font-bold text-primary-700' onClick={descriptionClick}>
+                      {toDo.title}
+                    </button>
                   </div>
                 ))}
           </div>
