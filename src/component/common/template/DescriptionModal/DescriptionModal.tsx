@@ -1,15 +1,9 @@
-import { Icon, IconProps } from '../../part/Icon';
-
-export interface DescriptionModalProps {
-  deleteDeepIcon: IconProps;
-  title: string;
-  description: string[];
-  clearModal?: () => void;
-}
+import { Icon } from '../../part/Icon';
+import { DescriptionModalPresenterProps } from './DescriptionModal.type';
 
 export const baseId = 'common-template-description-modal';
 
-export const DescriptionModal: React.FC<DescriptionModalProps> = ({
+export const DescriptionModal: React.FC<DescriptionModalPresenterProps> = ({
   deleteDeepIcon,
   title,
   description,

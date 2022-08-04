@@ -1,6 +1,7 @@
 import type { ComponentMeta, Story } from '@storybook/react';
-import { DescriptionModal, DescriptionModalProps } from './DescriptionModal';
 import { propObj } from './DescriptionModal.props';
+import { DescriptionModalProps } from './DescriptionModal.type';
+import { DescriptionModal } from './index';
 
 export default {
   title: 'Common/template/DescriptionModal',
