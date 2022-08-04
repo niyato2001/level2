@@ -29,6 +29,7 @@ export interface CardProps extends CardDataProps {
   descriptionClick: () => void;
   setSelectToDo: Dispatch<SetStateAction<string>>;
   selectClick: (i: number) => void;
+  selectToDo: string;
 }
 
 export interface LogicProps {
