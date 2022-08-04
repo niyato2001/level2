@@ -2,6 +2,7 @@ import { PageMain as PageMainPresenter } from './PageMain';
 import { propObj } from './PageMain.props';
 import { PageMainDataProps, PageMainLogicProps } from './PageMain.type';
 import { useModal } from '@/hook/useModal';
+import { useSelectToDo } from '@/hook/useSelectToDo';
 import { useTodos } from '@/hook/useTodos';
 /**
  * ロジックが存在しない（= Container が要らない）場合は 以下と置き換えてください。
@@ -15,6 +16,7 @@ export { PageMainPresenter};
 const PageMain: React.FC = () => {
   const { modal, descriptionClick, clearModal, createClick, updateClick } = useModal();
   const { toDos, setToDos } = useTodos();
+  const { selectToDo, setSelectToDo } = useSelectToDo();
   const logicProps: PageMainLogicProps = {
     modal: modal,
     toDos: toDos,
@@ -23,6 +25,8 @@ const PageMain: React.FC = () => {
     createClick: createClick,
     updateClick: updateClick,
     setToDos: setToDos,
+    selectToDo: selectToDo,
+    setSelectToDo: setSelectToDo,
   };
 
   const defaultProps: PageMainDataProps = { ...propObj.default };
