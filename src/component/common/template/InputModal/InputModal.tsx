@@ -1,39 +1,17 @@
-import { Dispatch, SetStateAction } from 'react';
-import { Icon, IconProps } from '../../part/Icon';
-import { useFormState } from '@/hook/useFormState';
-import { ToDoProps } from '@/hook/useTodos';
-
-export interface InputModalProps {
-  type: 'create' | 'update';
-  deleteDeepIcon: IconProps;
-}
-
-export interface InputModalFcProps extends InputModalProps {
-  clearModal: () => void;
-  toDos: ToDoProps[];
-  setToDos: Dispatch<SetStateAction<ToDoProps[]>>;
-}
+import { Icon } from '../../part/Icon';
+import { InputModalPresenterProps } from '@/component/common/template/InputModal/InputModal.type';
 
 export const baseId = 'common-template-input-modal';
 
-export const InputModal: React.FC<InputModalFcProps> = ({
+export const InputModal: React.FC<InputModalPresenterProps> = ({
   type,
   deleteDeepIcon,
   clearModal,
-  toDos,
-  setToDos,
+  onClearModal,
+  onCreateClick,
+  handleInput,
+  formState,
 }) => {
-  // PageMainでformStateの管理をすると、InputModalを消したあとに再び開くとformStateが維持されているがInputModalで管理するとModalを消すと消える。
-  // PageMainでformStateの管理をすると、InputModalにバケツリレーするが、その際にInputModalPropsでhandleInput?:とオプショナルを指定すると、undefinedとなりInputModal.propsの中身と齟齬が生じる
-  // 結果としてInputModalで状態管理をすることとした。
-  const { formState, handleInput } = useFormState();
-  const onClearModal = (): void => clearModal();
-  const onCreateClick = (): void => {
-    const newToDos = [...toDos];
-    setToDos([...newToDos, { ...formState }]);
-    clearModal();
-  };
-  // 関数をpropsで親要素から子要素に受け継ぐ場合には子要素であらためて関数を定義する必要がある！
   switch (type) {
     case 'create':
       return (
@@ -52,14 +30,13 @@ export const InputModal: React.FC<InputModalFcProps> = ({
                     className='form'
                     type='text'
                     onChange={(e) => handleInput('title', e.target.value)}
-                    value={formState?.title}
+                    value={formState.title}
                   />
                   <label>内容</label>
-                  <input
-                    className='form'
-                    type='text'
+                  <textarea
+                    className='textarea'
                     onChange={(e) => handleInput('description', e.target.value)}
-                    value={formState?.description}
+                    value={formState.description}
                   />
                 </form>
                 <div className='text-right'>
