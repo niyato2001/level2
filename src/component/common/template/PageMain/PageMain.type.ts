@@ -1,12 +1,12 @@
 import { Dispatch, SetStateAction } from 'react';
-import { CardProps } from '../Card/Card';
+import { CardDataProps } from '../Card/Card.type';
 import { DescriptionModalProps } from '../DescriptionModal/DescriptionModal';
 import { InputModalDataProps } from '../InputModal/InputModal.type';
 import { ToDoProps } from '@/hook/useTodos';
 
 export interface PageMainDataProps {
-  toDoCard: CardProps;
-  completedCard: CardProps;
+  toDoCard: CardDataProps;
+  completedCard: CardDataProps;
   descriptionModal: DescriptionModalProps;
   createModal: InputModalDataProps;
   updateModal: InputModalDataProps;
