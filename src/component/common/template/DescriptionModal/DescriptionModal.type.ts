@@ -10,6 +10,7 @@ export interface DescriptionModalDataProps {
 //Dataに含まれないロジック要素を追加
 export interface DescriptionModalPresenterProps extends DescriptionModalDataProps {
   clearModal: () => void;
+  toDo: ToDoProps;
 }
 
 // 親コンポーネントから受継ぐロジック要素
@@ -19,7 +20,8 @@ export interface DescriptionModalContainerProps {
 }
 
 //Storybook用のすべてを含んだ型
-export interface DescriptionModalProps extends DescriptionModalPresenterProps {
+export interface DescriptionModalProps extends DescriptionModalDataProps {
+  clearModal: () => void;
   toDo: ToDoProps;
 }
 

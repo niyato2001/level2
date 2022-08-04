@@ -8,6 +8,7 @@ export const DescriptionModal: React.FC<DescriptionModalPresenterProps> = ({
   title,
   description,
   clearModal,
+  toDo,
 }) => (
   <div className='absolute top-0 left-0 flex h-full w-full items-center justify-center bg-primary-50/90'>
     <div className='w-80 bg-white p-4 font-bold text-primary-800 shadow-sm shadow-primary-200'>
@@ -24,6 +25,8 @@ export const DescriptionModal: React.FC<DescriptionModalPresenterProps> = ({
               <li key={i}>・{item}</li>
             ))}
           </ul>
+          <div>{toDo.title}</div>
+          <div>{toDo.description}</div>
           <div className='text-right'>
             <button className='btn green-gradient'>更新</button>
           </div>
