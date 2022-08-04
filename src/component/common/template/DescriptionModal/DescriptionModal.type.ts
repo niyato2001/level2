@@ -24,4 +24,7 @@ export interface DescriptionModalProps extends DescriptionModalPresenterProps {
 }
 
 //Container内部で新たに生じたLogicの型定義
-// export interface DescriptionModalLogicProps {}
+export interface DescriptionModalLogicProps {
+  clearModal: () => void;
+  toDo: ToDoProps;
+}
