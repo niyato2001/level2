@@ -7,8 +7,8 @@ export interface CardProps {
 }
 
 export interface CardFcProps extends CardProps {
-  toDos: ToDoProps[];
-  handleClick: () => void;
+  toDos?: ToDoProps[];
+  handleClick?: () => void;
 }
 
 export const baseId = 'common-template-card';
@@ -25,19 +25,20 @@ export const Card: React.FC<CardFcProps> = ({ type, createLightIcon, toDos, hand
                 <Icon {...createLightIcon} />
               </span>
             </div>
-            {toDos
-              .filter((v) => v.isCompleted === false)
-              .map((toDo, i) => (
-                <div className='flex items-center gap-x-3' key={i}>
-                  <input
-                    type='checkbox'
-                    className='rounded-sm border-primary-700 text-primary-700 focus:ring-transparent'
-                    defaultChecked={toDo.isCompleted}
-                  />
+            {toDos &&
+              toDos
+                .filter((v) => v.isCompleted === false)
+                .map((toDo, i) => (
+                  <div className='flex items-center gap-x-3' key={i}>
+                    <input
+                      type='checkbox'
+                      className='rounded-sm border-primary-700 text-primary-700 focus:ring-transparent'
+                      defaultChecked={toDo.isCompleted}
+                    />
 
-                  <span className='font-bold text-primary-700'>{toDo.title}</span>
-                </div>
-              ))}
+                    <span className='font-bold text-primary-700'>{toDo.title}</span>
+                  </div>
+                ))}
           </div>
         </div>
       );
@@ -51,18 +52,19 @@ export const Card: React.FC<CardFcProps> = ({ type, createLightIcon, toDos, hand
                 <Icon {...createLightIcon} />
               </span>
             </div>
-            {toDos
-              .filter((v) => v.isCompleted === true)
-              .map((toDo, i) => (
-                <div className='flex items-center gap-x-3' key={i}>
-                  <input
-                    type='checkbox'
-                    className='rounded-sm border-primary-700 text-primary-700 focus:ring-transparent'
-                    defaultChecked={toDo.isCompleted}
-                  />
-                  <span className='font-bold text-primary-700'>{toDo.title}</span>
-                </div>
-              ))}
+            {toDos &&
+              toDos
+                .filter((v) => v.isCompleted === true)
+                .map((toDo, i) => (
+                  <div className='flex items-center gap-x-3' key={i}>
+                    <input
+                      type='checkbox'
+                      className='rounded-sm border-primary-700 text-primary-700 focus:ring-transparent'
+                      defaultChecked={toDo.isCompleted}
+                    />
+                    <span className='font-bold text-primary-700'>{toDo.title}</span>
+                  </div>
+                ))}
           </div>
         </div>
       );
