@@ -22,8 +22,13 @@ export interface PageMainPresenterProps extends PageMainDataProps {
   modal: string;
 }
 
-// PageMainのPresenterに含まれない親コンポーネントから受け継ぐ要素は今のところないので不要
-// export interface PageMainContainerProps extends PageMainPresenterProps {
+// 親コンポーネントから受け継ぐ要素は今のところないので不要
+// export interface PageMainContainerProps  {
+
+// }
+
+// Storybook用のすべてを含んだ型はPageMainPresenterPropsに含まれるので不要
+// export interface PageMainProps extends PageMainPresenterProps {
 
 // }
 

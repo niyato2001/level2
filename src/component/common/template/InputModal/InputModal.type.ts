@@ -23,6 +23,12 @@ export interface InputModalContainerProps {
   setToDos: Dispatch<SetStateAction<ToDoProps[]>>;
 }
 
+//Storybook用のすべてを含んだ型
+export interface InputModalProps extends InputModalPresenterProps {
+  toDos: ToDoProps[];
+  setToDos: Dispatch<SetStateAction<ToDoProps[]>>;
+}
+
 //Container内部で新たに生じたLogicの型定義
 export interface InputModalLogicProps {
   clearModal: () => void;
