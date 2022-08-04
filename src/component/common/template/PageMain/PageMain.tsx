@@ -21,8 +21,18 @@ export const PageMain: React.FC<PageMainPresenterProps> = ({
 }) => (
   <div className='relative flex w-[420px] flex-col gap-y-5 bg-primary-50 p-8'>
     <span className='text-lg font-bold text-primary-700'>For what you wanna do!!</span>
-    <Card {...toDoCard} toDos={toDos} handleClick={createClick} />
-    <Card {...completedCard} toDos={toDos} handleClick={createClick} />
+    <Card
+      {...toDoCard}
+      toDos={toDos}
+      handleClick={createClick}
+      descriptionClick={descriptionClick}
+    />
+    <Card
+      {...completedCard}
+      toDos={toDos}
+      handleClick={createClick}
+      descriptionClick={descriptionClick}
+    />
     <button className='btn green-gradient' onClick={descriptionClick}>
       description
     </button>
