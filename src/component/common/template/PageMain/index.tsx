@@ -1,11 +1,11 @@
 import { PageMain as PageMainPresenter } from './PageMain';
 import { propObj } from './PageMain.props';
-import { PageMainDataProps, PageMainLogicProps, PageMainContainerProps } from './PageMain.type';
+import { PageMainDataProps, PageMainLogicProps } from './PageMain.type';
 import { useModal } from '@/hook/useModal';
 import { useSelectToDo } from '@/hook/useSelectToDo';
 import { useTodos } from '@/hook/useTodos';
 
-const PageMain: React.FC<PageMainContainerProps> = () => {
+const PageMain: React.FC = () => {
   const { modal, descriptionClick, clearModal, createClick, updateClick } = useModal();
   const { toDos, setToDos } = useTodos();
   const { selectToDo, setSelectToDo } = useSelectToDo();
