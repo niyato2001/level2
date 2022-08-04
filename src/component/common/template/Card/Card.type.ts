@@ -1,31 +1,39 @@
+import { Dispatch, SetStateAction } from 'react';
 import { IconProps } from '@/component/common/part/Icon';
 import { ToDoProps } from '@/hook/useTodos';
 
 export interface CardDataProps {
-  type: 'TO DO' | 'COMPLETED';
   createLightIcon: IconProps;
 }
 
 export interface CardPresenterProps extends CardDataProps {
+  type: 'TO DO' | 'COMPLETED';
   toDos: ToDoProps[];
   handleClick: () => void;
-  descriptionClick: () => void;
+  selectClick: (i: number) => void;
 }
 
 export interface CardContainerProps {
+  type: 'TO DO' | 'COMPLETED';
   toDos: ToDoProps[];
   handleClick: () => void;
   descriptionClick: () => void;
+  setSelectToDo: Dispatch<SetStateAction<string>>;
+  selectToDo: string;
 }
 
 export interface CardProps extends CardDataProps {
+  type: 'TO DO' | 'COMPLETED';
   toDos: ToDoProps[];
   handleClick: () => void;
   descriptionClick: () => void;
+  setSelectToDo: Dispatch<SetStateAction<string>>;
+  selectClick: (i: number) => void;
 }
 
 export interface LogicProps {
+  type: 'TO DO' | 'COMPLETED';
   toDos: ToDoProps[];
   handleClick: () => void;
-  descriptionClick: () => void;
+  selectClick: (i: number) => void;
 }

@@ -8,7 +8,7 @@ export const Card: React.FC<CardPresenterProps> = ({
   createLightIcon,
   toDos,
   handleClick,
-  descriptionClick,
+  selectClick,
 }) => {
   switch (type) {
     case 'TO DO':
@@ -21,22 +21,21 @@ export const Card: React.FC<CardPresenterProps> = ({
                 <Icon {...createLightIcon} />
               </span>
             </div>
-            {toDos &&
-              toDos
-                .filter((v) => v.isCompleted === false)
-                .map((toDo, i) => (
-                  <div className='flex items-center gap-x-3' key={i}>
-                    <input
-                      type='checkbox'
-                      className='rounded-sm border-primary-700 text-primary-700 focus:ring-transparent'
-                      defaultChecked={toDo.isCompleted}
-                    />
+            {toDos
+              .filter((v) => v.isCompleted === false)
+              .map((toDo, i) => (
+                <div className='flex items-center gap-x-3' key={i}>
+                  <input
+                    type='checkbox'
+                    className='rounded-sm border-primary-700 text-primary-700 focus:ring-transparent'
+                    defaultChecked={toDo.isCompleted}
+                  />
 
-                    <button className='font-bold text-primary-700' onClick={descriptionClick}>
-                      {toDo.title}
-                    </button>
-                  </div>
-                ))}
+                  <button className='font-bold text-primary-700' onClick={() => selectClick(i)}>
+                    {toDo.title}
+                  </button>
+                </div>
+              ))}
           </div>
         </div>
       );
