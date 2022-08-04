@@ -26,15 +26,11 @@ export interface PageMainPresenterProps extends PageMainDataProps {
   setSelectToDo: Dispatch<SetStateAction<string>>;
 }
 
-// 親コンポーネントから受け継ぐ要素は今のところないので不要
-// export interface PageMainContainerProps  {
+// 親コンポーネントから受け継ぐ要素は今のところないが必要そう
+export type PageMainContainerProps = PageMainPresenterProps;
 
-// }
-
-// Storybook用のすべてを含んだ型はPageMainPresenterPropsに含まれるので不要
-// export interface PageMainProps extends PageMainPresenterProps {
-
-// }
+// Storybook用のすべてを含んだ型はPageMainPresenterPropsに含まれるが必要そう
+export type PageMainProps = PageMainPresenterProps;
 
 //Container内部で新たに生じたLogicの型定義
 export interface PageMainLogicProps {
