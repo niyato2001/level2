@@ -1,38 +1,16 @@
-import { Dispatch, SetStateAction } from 'react';
-import { Card, CardProps } from '../Card/Card';
-import { DescriptionModal, DescriptionModalProps } from '../DescriptionModal/DescriptionModal';
+import { Card } from '../Card/Card';
+import { DescriptionModal } from '../DescriptionModal/DescriptionModal';
 import { InputModal } from '../InputModal';
-import { InputModalDataProps, InputModalLogic2Props } from '../InputModal/InputModal.type';
-import { ToDoProps } from '@/hook/useTodos';
-
-export interface PageMainProps {
-  toDoCard: CardProps;
-  completedCard: CardProps;
-  descriptionModal: DescriptionModalProps;
-  createModal: InputModalDataProps;
-  updateModal: InputModalDataProps;
-  logicProps: InputModalLogic2Props;
-}
-
-export interface PageMainFcProps extends PageMainProps {
-  toDos: ToDoProps[];
-  createClick: () => void;
-  descriptionClick: () => void;
-  updateClick: () => void;
-  clearModal: () => void;
-  setToDos: Dispatch<SetStateAction<ToDoProps[]>>;
-  modal: string;
-}
+import { PageMainPresenterProps } from './PageMain.type';
 
 export const baseId = 'common-template-page-main';
 
-export const PageMain: React.FC<PageMainFcProps> = ({
+export const PageMain: React.FC<PageMainPresenterProps> = ({
   toDoCard,
   completedCard,
   descriptionModal,
   createModal,
   updateModal,
-  logicProps,
   toDos,
   createClick,
   descriptionClick,
@@ -56,22 +34,10 @@ export const PageMain: React.FC<PageMainFcProps> = ({
     </button>
     {modal === 'description' && <DescriptionModal {...descriptionModal} clearModal={clearModal} />}
     {modal === 'create' && (
-      <InputModal
-        {...createModal}
-        {...logicProps}
-        clearModal={clearModal}
-        toDos={toDos}
-        setToDos={setToDos}
-      />
+      <InputModal {...createModal} clearModal={clearModal} toDos={toDos} setToDos={setToDos} />
     )}
     {modal === 'update' && (
-      <InputModal
-        {...updateModal}
-        {...logicProps}
-        clearModal={clearModal}
-        toDos={toDos}
-        setToDos={setToDos}
-      />
+      <InputModal {...updateModal} clearModal={clearModal} toDos={toDos} setToDos={setToDos} />
     )}
   </div>
 );
