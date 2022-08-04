@@ -1,17 +1,17 @@
 import { createLightProps } from '../../part/Icon/Icon.props';
-import { CardProps } from './Card';
+import { CardDataProps } from './Card.type';
 
-export const toDoProps: CardProps = {
+export const toDoProps: CardDataProps = {
   type: 'TO DO',
   createLightIcon: createLightProps,
 };
 
-export const completedProps: CardProps = {
+export const completedProps: CardDataProps = {
   type: 'COMPLETED',
   createLightIcon: createLightProps,
 };
 
-export const propObj: { [key: string]: CardProps } = {
+export const propObj: { [key: string]: CardDataProps } = {
   toDo: toDoProps,
   completed: completedProps,
 };
