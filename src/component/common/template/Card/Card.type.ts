@@ -22,16 +22,6 @@ export interface CardContainerProps {
   selectToDo: string;
 }
 
-export interface CardProps extends CardDataProps {
-  type: 'TO DO' | 'COMPLETED';
-  toDos: ToDoProps[];
-  handleClick: () => void;
-  descriptionClick: () => void;
-  setSelectToDo: Dispatch<SetStateAction<string>>;
-  selectClick: (i: number) => void;
-  selectToDo: string;
-}
-
 export interface LogicProps {
   type: 'TO DO' | 'COMPLETED';
   toDos: ToDoProps[];

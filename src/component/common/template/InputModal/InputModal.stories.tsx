@@ -1,16 +1,19 @@
 import type { ComponentMeta, Story } from '@storybook/react';
+import { InputModal } from './InputModal';
 import { propObj } from './InputModal.props';
-import { InputModalProps } from './InputModal.type';
-import { InputModal } from './index';
+import { InputModalPresenterProps } from './InputModal.type';
 
 export default {
   title: 'Common/template/InputModal',
   component: InputModal,
 } as ComponentMeta<typeof InputModal>;
 
-const Template: Story<InputModalProps> = (args) => <InputModal {...args} />;
+const Template: Story<InputModalPresenterProps> = (args) => <InputModal {...args} />;
 
 export const Default = Template.bind({});
-Default.args = propObj.default;
+Default.args = {
+  ...propObj.default,
+  formState: { title: '', description: '', isCompleted: false },
+};
 export const Update = Template.bind({});
 Update.args = propObj.update;

@@ -1,14 +1,17 @@
 import type { ComponentMeta, Story } from '@storybook/react';
+import { DescriptionModal } from './DescriptionModal';
 import { propObj } from './DescriptionModal.props';
-import { DescriptionModalProps } from './DescriptionModal.type';
-import { DescriptionModal } from './index';
+import { DescriptionModalPresenterProps } from './DescriptionModal.type';
 
 export default {
   title: 'Common/template/DescriptionModal',
   component: DescriptionModal,
 } as ComponentMeta<typeof DescriptionModal>;
 
-const Template: Story<DescriptionModalProps> = (args) => <DescriptionModal {...args} />;
+const Template: Story<DescriptionModalPresenterProps> = (args) => <DescriptionModal {...args} />;
 
 export const Default = Template.bind({});
-Default.args = propObj.default;
+Default.args = {
+  ...propObj.default,
+  toDo: { isCompleted: false, title: 'name', description: 'description' },
+};

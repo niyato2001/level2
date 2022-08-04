@@ -37,18 +37,7 @@ export interface PageMainContainerProps extends PageMainDataProps {
   setSelectToDo: Dispatch<SetStateAction<string>>;
 }
 
-// Storybook用のすべてを含んだ型はPageMainPresenterPropsに含まれるが必要そう
-export interface PageMainProps extends PageMainDataProps {
-  toDos: ToDoProps[];
-  createClick: () => void;
-  descriptionClick: () => void;
-  updateClick: () => void;
-  clearModal: () => void;
-  setToDos: Dispatch<SetStateAction<ToDoProps[]>>;
-  modal: string;
-  selectToDo: string;
-  setSelectToDo: Dispatch<SetStateAction<string>>;
-}
+// Storybook用のすべてを含んだ型はPageMainPresenterPropsに含まれるが必要そう→不要
 
 //Container内部で新たに生じたLogicの型定義
 export interface PageMainLogicProps {

@@ -19,11 +19,7 @@ export interface DescriptionModalContainerProps {
   toDo: ToDoProps;
 }
 
-//Storybook用のすべてを含んだ型
-export interface DescriptionModalProps extends DescriptionModalDataProps {
-  clearModal: () => void;
-  toDo: ToDoProps;
-}
+//Storybook用のすべてを含んだ型→不要
 
 //Container内部で新たに生じたLogicの型定義
 export interface DescriptionModalLogicProps {
