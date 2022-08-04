@@ -11,6 +11,6 @@ export default {
 const Template: Story<CardProps> = (args) => <Card {...args} />;
 
 export const ToDo = Template.bind({});
-ToDo.args = propObj.toDo;
+ToDo.args = { ...propObj.toDo, type: 'TO DO' };
 export const Completed = Template.bind({});
-Completed.args = propObj.completed;
+Completed.args = { ...propObj.completed, type: 'COMPLETED' };
