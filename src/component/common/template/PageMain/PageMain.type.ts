@@ -5,8 +5,6 @@ import { InputModalDataProps } from '../InputModal/InputModal.type';
 import { ToDoProps } from '@/hook/useTodos';
 
 export interface PageMainDataProps {
-  toDo: 'TO DO' | 'COMPLETED';
-  completed: 'TO DO' | 'COMPLETED';
   toDoCard: CardDataProps;
   completedCard: CardDataProps;
   descriptionModal: DescriptionModalDataProps;

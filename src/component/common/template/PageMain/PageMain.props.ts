@@ -4,8 +4,6 @@ import { PageMainDataProps } from './PageMain.type';
 import { propObj as inputModalProps } from '@/component/common/template/InputModal/InputModal.props';
 
 const defaultProps: PageMainDataProps = {
-  toDo: 'TO DO',
-  completed: 'COMPLETED',
   toDoCard: toDoProps,
   completedCard: completedProps,
   descriptionModal: descriptionModalProps.default,
