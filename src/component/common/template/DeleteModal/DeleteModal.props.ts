@@ -1,7 +1,7 @@
 import { deleteDeepProps } from '../../part/Icon/Icon.props';
-import { DeleteModalProps } from './DeleteModal';
+import { DeleteModalDataProps } from './DeleteModal.type';
 
-const defaultProps: DeleteModalProps = {
+const defaultProps: DeleteModalDataProps = {
   deleteDeepIcon: deleteDeepProps,
   title: '経営の必読書を読む',
 };
@@ -24,6 +24,6 @@ export const propObj: PropObj = {
   ...
 }*/
 
-export const propObj: { [key: string]: DeleteModalProps } = {
+export const propObj: { [key: string]: DeleteModalDataProps } = {
   default: defaultProps,
 };
