@@ -19,7 +19,7 @@ export interface PageMainPresenterProps extends PageMainDataProps {
   toDos: ToDoProps[];
   createClick: () => void;
   descriptionClick: () => void;
-  updateClick: () => void;
+  updateSetClick: () => void;
   clearModal: () => void;
   setToDos: Dispatch<SetStateAction<ToDoProps[]>>;
   modal: string;
@@ -56,7 +56,7 @@ export interface PageMainLogicProps {
   clearModal: () => void;
   descriptionClick: () => void;
   createClick: () => void;
-  updateClick: () => void;
+  updateSetClick: () => void;
   selectToDo: string;
   setSelectToDo: Dispatch<SetStateAction<string>>;
 }

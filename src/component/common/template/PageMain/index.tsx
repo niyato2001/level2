@@ -10,11 +10,16 @@ const PageMain: React.FC = () => {
   const { modal, descriptionClick, clearModal, createClick, updateClick } = useModal();
   const { toDos, setToDos } = useTodos();
   const { selectToDo, setSelectToDo } = useSelectToDo();
-  const { formState, handleInput } = useFormState();
+  const { formState, setFormState, initialForm, handleInput } = useFormState();
   const onCreateClick = (): void => {
     const newToDos = [...toDos];
     setToDos([...newToDos, { ...formState }]);
+    setFormState(initialForm);
     clearModal();
+  };
+  const updateSetClick = (): void => {
+    setFormState(toDos[Number(selectToDo)]);
+    updateClick();
   };
   const logicProps: PageMainLogicProps = {
     onCreateClick: onCreateClick,
@@ -25,7 +30,7 @@ const PageMain: React.FC = () => {
     descriptionClick: descriptionClick,
     clearModal: clearModal,
     createClick: createClick,
-    updateClick: updateClick,
+    updateSetClick: updateSetClick,
     setToDos: setToDos,
     selectToDo: selectToDo,
     setSelectToDo: setSelectToDo,

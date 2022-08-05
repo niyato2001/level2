@@ -5,7 +5,7 @@ export const baseId = 'common-template-description-modal';
 
 export const DescriptionModal: React.FC<DescriptionModalPresenterProps> = ({
   deleteDeepIcon,
-  updateClick,
+  updateSetClick,
   clearModal,
   toDo,
 }) => (
@@ -21,7 +21,7 @@ export const DescriptionModal: React.FC<DescriptionModalPresenterProps> = ({
           <div className='text-lg'>{toDo.title}</div>
           <div>{toDo.description}</div>
           <div className='text-right'>
-            <button className='btn green-gradient' onClick={updateClick}>
+            <button className='btn green-gradient' onClick={updateSetClick}>
               更新
             </button>
           </div>

@@ -16,13 +16,13 @@ export { DescriptionModalPresenter};
 */
 
 const DescriptionModal: React.FC<DescriptionModalContainerProps> = ({
-  updateClick,
+  updateSetClick,
   clearModal,
   toDo,
 }) => {
   const logicProps: DescriptionModalLogicProps = {
     clearModal: clearModal,
-    updateClick: updateClick,
+    updateSetClick: updateSetClick,
     toDo: toDo,
   };
   const defaultProps: DescriptionModalDataProps = { ...propObj.default };

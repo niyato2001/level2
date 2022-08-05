@@ -14,7 +14,7 @@ export const PageMain: React.FC<PageMainPresenterProps> = ({
   toDos,
   createClick,
   descriptionClick,
-  updateClick,
+  updateSetClick,
   clearModal,
   setToDos,
   modal,
@@ -44,19 +44,11 @@ export const PageMain: React.FC<PageMainPresenterProps> = ({
       setSelectToDo={setSelectToDo}
       selectToDo={selectToDo}
     />
-    <button className='btn green-gradient' onClick={descriptionClick}>
-      description
-    </button>
-    <button className='btn green-gradient' onClick={createClick}>
-      create
-    </button>
-    <button className='btn green-gradient' onClick={updateClick}>
-      update
-    </button>
+
     {modal === 'description' && (
       <DescriptionModal
         {...descriptionModal}
-        updateClick={updateClick}
+        updateSetClick={updateSetClick}
         clearModal={clearModal}
         toDo={toDos[Number(selectToDo)]}
       />
