@@ -5,8 +5,6 @@ export const baseId = 'common-template-description-modal';
 
 export const DescriptionModal: React.FC<DescriptionModalPresenterProps> = ({
   deleteDeepIcon,
-  title,
-  description,
   clearModal,
   toDo,
 }) => (
@@ -19,13 +17,7 @@ export const DescriptionModal: React.FC<DescriptionModalPresenterProps> = ({
       </div>
       <div className='mx-auto px-8'>
         <div className='flex flex-col gap-y-4'>
-          <div className='text-lg'>{title}</div>
-          <ul>
-            {description.map((item, i) => (
-              <li key={i}>・{item}</li>
-            ))}
-          </ul>
-          <div>{toDo.title}</div>
+          <div className='text-lg'>{toDo.title}</div>
           <div>{toDo.description}</div>
           <div className='text-right'>
             <button className='btn green-gradient'>更新</button>

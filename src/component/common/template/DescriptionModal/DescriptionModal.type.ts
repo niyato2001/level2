@@ -3,8 +3,6 @@ import { ToDoProps } from '@/hook/useTodos';
 
 export interface DescriptionModalDataProps {
   deleteDeepIcon: IconProps;
-  title: string;
-  description: string[];
 }
 
 //Dataに含まれないロジック要素を追加

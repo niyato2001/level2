@@ -13,5 +13,5 @@ const Template: Story<DescriptionModalPresenterProps> = (args) => <DescriptionMo
 export const Default = Template.bind({});
 Default.args = {
   ...propObj.default,
-  toDo: { isCompleted: false, title: 'name', description: 'description' },
+  toDo: { isCompleted: false, title: '経営の必読書を読む', description: 'イシューから始めよ' },
 };
