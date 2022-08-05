@@ -90,6 +90,7 @@ export const PageMain: React.FC<PageMainPresenterProps> = ({
         toDos={toDos}
         setToDos={setToDos}
         selectToDo={selectToDo}
+        toDo={toDos[Number(selectToDo)]}
       />
     )}
   </div>

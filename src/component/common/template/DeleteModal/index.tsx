@@ -13,6 +13,7 @@ const DeleteModal: React.FC<DeleteModalContainerProps> = ({
   toDos,
   setToDos,
   selectToDo,
+  toDo,
 }) => {
   const onDeleteClick = (): void => {
     const newToDos: ToDoProps[] = [...toDos];
@@ -23,6 +24,7 @@ const DeleteModal: React.FC<DeleteModalContainerProps> = ({
     clearModal: clearModal,
     descriptionClick: descriptionClick,
     onDeleteClick: onDeleteClick,
+    toDo: toDo,
   };
   const defaultProps: DeleteModalDataProps = { ...propObj.default };
   return <DeleteModalPresenter {...defaultProps} {...logicProps} />;

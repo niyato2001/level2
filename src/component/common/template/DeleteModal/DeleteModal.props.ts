@@ -3,7 +3,6 @@ import { DeleteModalDataProps } from './DeleteModal.type';
 
 const defaultProps: DeleteModalDataProps = {
   deleteDeepIcon: deleteDeepProps,
-  title: '経営の必読書を読む',
 };
 
 /**

@@ -11,4 +11,7 @@ export default {
 const Template: Story<DeleteModalPresenterProps> = (args) => <DeleteModal {...args} />;
 
 export const Default = Template.bind({});
-Default.args = propObj.default;
+Default.args = {
+  ...propObj.default,
+  toDo: { title: '経営の必読書を読む', description: '起業のファイナンス', isCompleted: false },
+};

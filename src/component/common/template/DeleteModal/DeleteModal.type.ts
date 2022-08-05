@@ -4,13 +4,13 @@ import { ToDoProps } from '@/hook/useTodos';
 
 export interface DeleteModalDataProps {
   deleteDeepIcon: IconProps;
-  title: string;
 }
 
 export interface DeleteModalPresenterProps extends DeleteModalDataProps {
   clearModal: () => void;
   descriptionClick: () => void;
   onDeleteClick: () => void;
+  toDo: ToDoProps;
 }
 
 export interface DeleteModalContainerProps {
@@ -19,10 +19,12 @@ export interface DeleteModalContainerProps {
   toDos: ToDoProps[];
   setToDos: Dispatch<SetStateAction<ToDoProps[]>>;
   selectToDo: string;
+  toDo: ToDoProps;
 }
 
 export interface DeleteModalLogicProps {
   clearModal: () => void;
   descriptionClick: () => void;
   onDeleteClick: () => void;
+  toDo: ToDoProps;
 }
