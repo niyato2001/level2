@@ -8,6 +8,7 @@ export const DeleteModal: React.FC<DeleteModalPresenterProps> = ({
   title,
   clearModal,
   descriptionClick,
+  onDeleteClick,
 }) => (
   <div className='absolute top-0 left-0 flex h-full w-full items-center justify-center bg-primary-50 opacity-90 '>
     <div className='w-80 bg-white p-4 font-bold text-primary-800 shadow-sm shadow-primary-200'>
@@ -24,7 +25,9 @@ export const DeleteModal: React.FC<DeleteModalPresenterProps> = ({
             <button className='btn green-gradient' onClick={descriptionClick}>
               キャンセル
             </button>
-            <button className='btn pink-gradient'>削除</button>
+            <button className='btn pink-gradient' onClick={onDeleteClick}>
+              削除
+            </button>
           </div>
         </div>
       </div>
