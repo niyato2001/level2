@@ -15,9 +15,14 @@ export type { DescriptionModalDataProps };
 export { DescriptionModalPresenter};
 */
 
-const DescriptionModal: React.FC<DescriptionModalContainerProps> = ({ clearModal, toDo }) => {
+const DescriptionModal: React.FC<DescriptionModalContainerProps> = ({
+  updateClick,
+  clearModal,
+  toDo,
+}) => {
   const logicProps: DescriptionModalLogicProps = {
     clearModal: clearModal,
+    updateClick: updateClick,
     toDo: toDo,
   };
   const defaultProps: DescriptionModalDataProps = { ...propObj.default };
