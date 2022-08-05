@@ -53,15 +53,28 @@ export const PageMain: React.FC<PageMainPresenterProps> = ({
     {modal === 'description' && (
       <DescriptionModal
         {...descriptionModal}
+        updateClick={updateClick}
         clearModal={clearModal}
         toDo={toDos[Number(selectToDo)]}
       />
     )}
     {modal === 'create' && (
-      <InputModal {...createModal} clearModal={clearModal} toDos={toDos} setToDos={setToDos} />
+      <InputModal
+        type='create'
+        {...createModal}
+        clearModal={clearModal}
+        toDos={toDos}
+        setToDos={setToDos}
+      />
     )}
     {modal === 'update' && (
-      <InputModal {...updateModal} clearModal={clearModal} toDos={toDos} setToDos={setToDos} />
+      <InputModal
+        type='update'
+        {...updateModal}
+        clearModal={clearModal}
+        toDos={toDos}
+        setToDos={setToDos}
+      />
     )}
   </div>
 );

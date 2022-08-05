@@ -12,8 +12,9 @@ const Template: Story<InputModalPresenterProps> = (args) => <InputModal {...args
 
 export const Default = Template.bind({});
 Default.args = {
+  type: 'create',
   ...propObj.default,
   formState: { title: '', description: '', isCompleted: false },
 };
 export const Update = Template.bind({});
-Update.args = propObj.update;
+Update.args = { type: 'update', ...propObj.update };

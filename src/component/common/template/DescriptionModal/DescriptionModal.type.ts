@@ -8,12 +8,14 @@ export interface DescriptionModalDataProps {
 //Dataに含まれないロジック要素を追加
 export interface DescriptionModalPresenterProps extends DescriptionModalDataProps {
   clearModal: () => void;
+  updateClick: () => void;
   toDo: ToDoProps;
 }
 
 // 親コンポーネントから受継ぐロジック要素
 export interface DescriptionModalContainerProps {
   clearModal: () => void;
+  updateClick: () => void;
   toDo: ToDoProps;
 }
 
@@ -22,5 +24,6 @@ export interface DescriptionModalContainerProps {
 //Container内部で新たに生じたLogicの型定義
 export interface DescriptionModalLogicProps {
   clearModal: () => void;
+  updateClick: () => void;
   toDo: ToDoProps;
 }

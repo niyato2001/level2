@@ -3,12 +3,12 @@ import { IconProps } from '../../part/Icon';
 import { ToDoProps } from '@/hook/useTodos';
 
 export interface InputModalDataProps {
-  type: 'create' | 'update';
   deleteDeepIcon: IconProps;
 }
 
 //Dataに含まれないロジック要素を追加
 export interface InputModalPresenterProps extends InputModalDataProps {
+  type: 'create' | 'update';
   clearModal: () => void;
   onClearModal: () => void;
   onCreateClick: () => void;
@@ -18,6 +18,7 @@ export interface InputModalPresenterProps extends InputModalDataProps {
 
 // 親コンポーネントから受継ぐロジック要素
 export interface InputModalContainerProps {
+  type: 'create' | 'update';
   clearModal: () => void;
   toDos: ToDoProps[];
   setToDos: Dispatch<SetStateAction<ToDoProps[]>>;
@@ -27,6 +28,7 @@ export interface InputModalContainerProps {
 
 //Container内部で新たに生じたLogicの型定義
 export interface InputModalLogicProps {
+  type: 'create' | 'update';
   clearModal: () => void;
   onClearModal: () => void;
   onCreateClick: () => void;
