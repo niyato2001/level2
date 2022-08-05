@@ -6,9 +6,10 @@ import {
   DeleteModalLogicProps,
 } from './DeleteModal.type';
 
-const DeleteModal: React.FC<DeleteModalContainerProps> = ({ clearModal }) => {
+const DeleteModal: React.FC<DeleteModalContainerProps> = ({ clearModal, descriptionClick }) => {
   const logicProps: DeleteModalLogicProps = {
     clearModal: clearModal,
+    descriptionClick: descriptionClick,
   };
   const defaultProps: DeleteModalDataProps = { ...propObj.default };
   return <DeleteModalPresenter {...defaultProps} {...logicProps} />;

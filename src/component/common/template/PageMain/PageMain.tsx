@@ -83,6 +83,8 @@ export const PageMain: React.FC<PageMainPresenterProps> = ({
         setToDos={setToDos}
       />
     )}
-    {modal === 'delete' && <DeleteModal clearModal={clearModal} />}
+    {modal === 'delete' && (
+      <DeleteModal clearModal={clearModal} descriptionClick={descriptionClick} />
+    )}
   </div>
 );

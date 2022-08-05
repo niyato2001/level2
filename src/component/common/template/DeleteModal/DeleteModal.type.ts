@@ -7,12 +7,15 @@ export interface DeleteModalDataProps {
 
 export interface DeleteModalPresenterProps extends DeleteModalDataProps {
   clearModal: () => void;
+  descriptionClick: () => void;
 }
 
 export interface DeleteModalContainerProps {
   clearModal: () => void;
+  descriptionClick: () => void;
 }
 
 export interface DeleteModalLogicProps {
   clearModal: () => void;
+  descriptionClick: () => void;
 }
