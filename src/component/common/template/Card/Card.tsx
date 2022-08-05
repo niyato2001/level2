@@ -17,9 +17,9 @@ export const Card: React.FC<CardPresenterProps> = ({
           <span className='tag bg-primary-700'>{type}</span>
           <div className='-mt-2 flex w-[360px] flex-col gap-y-2 bg-white px-8 py-4 shadow-md shadow-primary-200'>
             <div className='flex justify-end'>
-              <span className='justify-self-end' onClick={handleClick}>
+              <button className='justify-self-end' onClick={handleClick}>
                 <Icon {...createLightIcon} />
-              </span>
+              </button>
             </div>
             {toDos
               .filter((v) => v.isCompleted === false)
