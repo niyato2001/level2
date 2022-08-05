@@ -60,8 +60,21 @@ export const InputModal: React.FC<InputModalPresenterProps> = ({
             </div>
             <div className='mx-auto px-8'>
               <div className='flex flex-col gap-y-4'>
-                <div className='text-lg'>タイトル</div>
-                内容
+                <form className='flex flex-col gap-y-1'>
+                  <label className='text-lg'>タイトル</label>
+                  <input
+                    className='form'
+                    type='text'
+                    onChange={(e) => handleInput('title', e.target.value)}
+                    value={formState.title}
+                  />
+                  <label>内容</label>
+                  <textarea
+                    className='textarea'
+                    onChange={(e) => handleInput('description', e.target.value)}
+                    value={formState.description}
+                  />
+                </form>
                 <div className='text-right'>
                   <button className='btn green-gradient' onClick={onCreateClick}>
                     更新

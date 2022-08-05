@@ -1,6 +1,7 @@
 import { PageMain as PageMainPresenter } from './PageMain';
 import { propObj } from './PageMain.props';
 import { PageMainDataProps, PageMainLogicProps } from './PageMain.type';
+import { useFormState } from '@/hook/useFormState';
 import { useModal } from '@/hook/useModal';
 import { useSelectToDo } from '@/hook/useSelectToDo';
 import { useTodos } from '@/hook/useTodos';
@@ -9,7 +10,16 @@ const PageMain: React.FC = () => {
   const { modal, descriptionClick, clearModal, createClick, updateClick } = useModal();
   const { toDos, setToDos } = useTodos();
   const { selectToDo, setSelectToDo } = useSelectToDo();
+  const { formState, handleInput } = useFormState();
+  const onCreateClick = (): void => {
+    const newToDos = [...toDos];
+    setToDos([...newToDos, { ...formState }]);
+    clearModal();
+  };
   const logicProps: PageMainLogicProps = {
+    onCreateClick: onCreateClick,
+    formState: formState,
+    handleInput: handleInput,
     modal: modal,
     toDos: toDos,
     descriptionClick: descriptionClick,

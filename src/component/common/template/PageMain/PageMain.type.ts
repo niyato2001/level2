@@ -13,6 +13,9 @@ export interface PageMainDataProps {
 }
 
 export interface PageMainPresenterProps extends PageMainDataProps {
+  onCreateClick: () => void;
+  formState: ToDoProps;
+  handleInput: (key: string, value: string) => void;
   toDos: ToDoProps[];
   createClick: () => void;
   descriptionClick: () => void;
@@ -25,22 +28,28 @@ export interface PageMainPresenterProps extends PageMainDataProps {
 }
 
 // 親コンポーネントから受け継ぐ要素は今のところないが必要そう
-export interface PageMainContainerProps extends PageMainDataProps {
-  toDos: ToDoProps[];
-  createClick: () => void;
-  descriptionClick: () => void;
-  updateClick: () => void;
-  clearModal: () => void;
-  setToDos: Dispatch<SetStateAction<ToDoProps[]>>;
-  modal: string;
-  selectToDo: string;
-  setSelectToDo: Dispatch<SetStateAction<string>>;
-}
+// export interface PageMainContainerProps extends PageMainDataProps {
+//   onCreateClick: () => void;
+//   formState: ToDoProps;
+//   handleInput: (key: string, value: string) => void;
+//   toDos: ToDoProps[];
+//   createClick: () => void;
+//   descriptionClick: () => void;
+//   updateClick: () => void;
+//   clearModal: () => void;
+//   setToDos: Dispatch<SetStateAction<ToDoProps[]>>;
+//   modal: string;
+//   selectToDo: string;
+//   setSelectToDo: Dispatch<SetStateAction<string>>;
+// }
 
 // Storybook用のすべてを含んだ型はPageMainPresenterPropsに含まれるが必要そう→不要
 
 //Container内部で新たに生じたLogicの型定義
 export interface PageMainLogicProps {
+  onCreateClick: () => void;
+  formState: ToDoProps;
+  handleInput: (key: string, value: string) => void;
   modal: string;
   toDos: ToDoProps[];
   setToDos: Dispatch<SetStateAction<ToDoProps[]>>;

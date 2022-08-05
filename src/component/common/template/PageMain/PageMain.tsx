@@ -20,6 +20,9 @@ export const PageMain: React.FC<PageMainPresenterProps> = ({
   modal,
   selectToDo,
   setSelectToDo,
+  onCreateClick,
+  formState,
+  handleInput,
 }) => (
   <div className='relative flex w-[420px] flex-col gap-y-5 bg-primary-50 p-8'>
     <span className='text-lg font-bold text-primary-700'>For what you wanna do!!</span>
@@ -60,6 +63,9 @@ export const PageMain: React.FC<PageMainPresenterProps> = ({
     )}
     {modal === 'create' && (
       <InputModal
+        formState={formState}
+        handleInput={handleInput}
+        onCreateClick={onCreateClick}
         type='create'
         {...createModal}
         clearModal={clearModal}
@@ -69,6 +75,9 @@ export const PageMain: React.FC<PageMainPresenterProps> = ({
     )}
     {modal === 'update' && (
       <InputModal
+        formState={formState}
+        handleInput={handleInput}
+        onCreateClick={onCreateClick}
         type='update'
         {...updateModal}
         clearModal={clearModal}

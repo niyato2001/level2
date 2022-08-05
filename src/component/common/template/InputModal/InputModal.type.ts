@@ -12,8 +12,8 @@ export interface InputModalPresenterProps extends InputModalDataProps {
   clearModal: () => void;
   onClearModal: () => void;
   onCreateClick: () => void;
-  handleInput: (key: string, value: string) => void;
   formState: ToDoProps;
+  handleInput: (key: string, value: string) => void;
 }
 
 // 親コンポーネントから受継ぐロジック要素
@@ -22,6 +22,9 @@ export interface InputModalContainerProps {
   clearModal: () => void;
   toDos: ToDoProps[];
   setToDos: Dispatch<SetStateAction<ToDoProps[]>>;
+  onCreateClick: () => void;
+  formState: ToDoProps;
+  handleInput: (key: string, value: string) => void;
 }
 
 //Storybook用のすべてを含んだ型→不要PresenterPropsでOK
