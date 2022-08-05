@@ -9,6 +9,7 @@ export interface DescriptionModalDataProps {
 export interface DescriptionModalPresenterProps extends DescriptionModalDataProps {
   clearModal: () => void;
   updateSetClick: () => void;
+  deleteSetClick: () => void;
   toDo: ToDoProps;
 }
 
@@ -16,6 +17,7 @@ export interface DescriptionModalPresenterProps extends DescriptionModalDataProp
 export interface DescriptionModalContainerProps {
   clearModal: () => void;
   updateSetClick: () => void;
+  deleteSetClick: () => void;
   toDo: ToDoProps;
 }
 
@@ -25,5 +27,6 @@ export interface DescriptionModalContainerProps {
 export interface DescriptionModalLogicProps {
   clearModal: () => void;
   updateSetClick: () => void;
+  deleteSetClick: () => void;
   toDo: ToDoProps;
 }

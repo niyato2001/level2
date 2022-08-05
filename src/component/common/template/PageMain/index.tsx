@@ -7,7 +7,7 @@ import { useSelectToDo } from '@/hook/useSelectToDo';
 import { useTodos } from '@/hook/useTodos';
 
 const PageMain: React.FC = () => {
-  const { modal, descriptionClick, clearModal, createClick, updateClick } = useModal();
+  const { modal, descriptionClick, clearModal, createClick, updateClick, deleteClick } = useModal();
   const { toDos, setToDos } = useTodos();
   const { selectToDo, setSelectToDo } = useSelectToDo();
   const { formState, setFormState, initialForm, handleInput } = useFormState();
@@ -29,6 +29,9 @@ const PageMain: React.FC = () => {
     setFormState(toDos[Number(selectToDo)]);
     updateClick();
   };
+  const deleteSetClick = (): void => {
+    deleteClick();
+  };
   const logicProps: PageMainLogicProps = {
     onCreateClick: onCreateClick,
     onUpdateClick: onUpdateClick,
@@ -40,6 +43,7 @@ const PageMain: React.FC = () => {
     clearModal: clearModal,
     createClick: createClick,
     updateSetClick: updateSetClick,
+    deleteSetClick: deleteSetClick,
     setToDos: setToDos,
     selectToDo: selectToDo,
     setSelectToDo: setSelectToDo,

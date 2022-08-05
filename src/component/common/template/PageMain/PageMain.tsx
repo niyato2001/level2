@@ -1,5 +1,6 @@
 import { Card } from '../Card/index';
-import { DescriptionModal } from '../DescriptionModal/DescriptionModal';
+import { DeleteModal } from '../DeleteModal';
+import { DescriptionModal } from '../DescriptionModal/';
 import { InputModal } from '../InputModal';
 import { PageMainPresenterProps } from './PageMain.type';
 
@@ -15,6 +16,7 @@ export const PageMain: React.FC<PageMainPresenterProps> = ({
   createClick,
   descriptionClick,
   updateSetClick,
+  deleteSetClick,
   clearModal,
   setToDos,
   modal,
@@ -50,6 +52,7 @@ export const PageMain: React.FC<PageMainPresenterProps> = ({
       <DescriptionModal
         {...descriptionModal}
         updateSetClick={updateSetClick}
+        deleteSetClick={deleteSetClick}
         clearModal={clearModal}
         toDo={toDos[Number(selectToDo)]}
       />
@@ -80,5 +83,6 @@ export const PageMain: React.FC<PageMainPresenterProps> = ({
         setToDos={setToDos}
       />
     )}
+    {modal === 'delete' && <DeleteModal />}
   </div>
 );

@@ -9,6 +9,7 @@ interface UseModalReturnType {
   clearModal: () => void;
   createClick: () => void;
   updateClick: () => void;
+  deleteClick: () => void;
 }
 
 export const useModal = (): UseModalReturnType => {
@@ -25,5 +26,8 @@ export const useModal = (): UseModalReturnType => {
   const updateClick = () => {
     setModal('update');
   };
-  return { setModal, modal, descriptionClick, clearModal, createClick, updateClick };
+  const deleteClick = () => {
+    setModal('delete');
+  };
+  return { setModal, modal, descriptionClick, clearModal, createClick, updateClick, deleteClick };
 };
