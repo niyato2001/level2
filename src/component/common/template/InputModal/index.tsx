@@ -13,6 +13,7 @@ const InputModal: React.FC<InputModalContainerProps> = ({
   setToDos,
   formState,
   onCreateClick,
+  onUpdateClick,
   handleInput,
 }) => {
   // PageMainでformStateの管理をすると、InputModalを消したあとに再び開くとformStateが維持されているがInputModalで管理するとModalを消すと消える。
@@ -27,6 +28,7 @@ const InputModal: React.FC<InputModalContainerProps> = ({
     handleInput: handleInput,
     clearModal: clearModal,
     onClearModal: onClearModal,
+    onUpdateClick: onUpdateClick,
     onCreateClick: onCreateClick,
     formState: formState,
     toDos: toDos,

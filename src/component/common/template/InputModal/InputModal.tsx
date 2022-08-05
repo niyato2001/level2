@@ -9,6 +9,7 @@ export const InputModal: React.FC<InputModalPresenterProps> = ({
   clearModal,
   onClearModal,
   onCreateClick,
+  onUpdateClick,
   handleInput,
   formState,
 }) => {
@@ -76,7 +77,7 @@ export const InputModal: React.FC<InputModalPresenterProps> = ({
                   />
                 </form>
                 <div className='text-right'>
-                  <button className='btn green-gradient' onClick={onCreateClick}>
+                  <button className='btn green-gradient' onClick={onUpdateClick}>
                     更新
                   </button>
                 </div>

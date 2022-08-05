@@ -14,6 +14,7 @@ export interface PageMainDataProps {
 
 export interface PageMainPresenterProps extends PageMainDataProps {
   onCreateClick: () => void;
+  onUpdateClick: () => void;
   formState: ToDoProps;
   handleInput: (key: string, value: string) => void;
   toDos: ToDoProps[];
@@ -48,6 +49,7 @@ export interface PageMainPresenterProps extends PageMainDataProps {
 //Container内部で新たに生じたLogicの型定義
 export interface PageMainLogicProps {
   onCreateClick: () => void;
+  onUpdateClick: () => void;
   formState: ToDoProps;
   handleInput: (key: string, value: string) => void;
   modal: string;

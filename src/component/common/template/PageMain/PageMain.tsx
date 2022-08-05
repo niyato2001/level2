@@ -21,6 +21,7 @@ export const PageMain: React.FC<PageMainPresenterProps> = ({
   selectToDo,
   setSelectToDo,
   onCreateClick,
+  onUpdateClick,
   formState,
   handleInput,
 }) => (
@@ -58,6 +59,7 @@ export const PageMain: React.FC<PageMainPresenterProps> = ({
         formState={formState}
         handleInput={handleInput}
         onCreateClick={onCreateClick}
+        onUpdateClick={onUpdateClick}
         type='create'
         {...createModal}
         clearModal={clearModal}
@@ -70,6 +72,7 @@ export const PageMain: React.FC<PageMainPresenterProps> = ({
         formState={formState}
         handleInput={handleInput}
         onCreateClick={onCreateClick}
+        onUpdateClick={onUpdateClick}
         type='update'
         {...updateModal}
         clearModal={clearModal}

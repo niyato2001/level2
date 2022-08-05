@@ -17,12 +17,21 @@ const PageMain: React.FC = () => {
     setFormState(initialForm);
     clearModal();
   };
+  const onUpdateClick = (): void => {
+    const newToDos = [...toDos];
+    newToDos[Number(selectToDo)] = { ...formState };
+    setToDos([...newToDos]);
+    setFormState(initialForm);
+    clearModal();
+  };
+  // update時にselectToDoの初期化はしていない
   const updateSetClick = (): void => {
     setFormState(toDos[Number(selectToDo)]);
     updateClick();
   };
   const logicProps: PageMainLogicProps = {
     onCreateClick: onCreateClick,
+    onUpdateClick: onUpdateClick,
     formState: formState,
     handleInput: handleInput,
     modal: modal,
