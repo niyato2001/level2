@@ -43,11 +43,12 @@ export const Card: React.FC<CardPresenterProps> = ({
       return (
         <div>
           <span className='tag bg-pink-700'>{type}</span>
-          <div className='-mt-2 flex w-[360px] flex-col gap-y-2 bg-white px-8 py-4 shadow-md shadow-primary-200'>
+          <div className='-mt-2 flex w-[360px] flex-col gap-y-2 bg-white px-8 pt-10 pb-4 shadow-md shadow-primary-200'>
             <div className='flex justify-end'>
-              <span className='justify-self-end' onClick={handleClick}>
+              {/* <span className='justify-self-end' onClick={handleClick}>
                 <Icon {...createLightIcon} />
-              </span>
+              </span> */}
+              {/* completedに直接追加することは考えにくいので消去 */}
             </div>
             {toDos &&
               toDos
