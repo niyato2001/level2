@@ -49,6 +49,7 @@ export interface PageMainPresenterProps extends PageMainDataProps {
 
 //Container内部で新たに生じたLogicの型定義
 export interface PageMainLogicProps {
+  countId: () => void;
   onCreateClick: () => void;
   onUpdateClick: () => void;
   formState: ToDoProps;
