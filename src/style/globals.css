@@ -20,3 +20,7 @@
 .form {
   @apply h-10 w-52 rounded-md border-2 border-primary-700 px-2 text-primary-800 focus:border-primary-200 focus:outline-none focus:ring-0;
 }
+
+.textarea {
+  @apply h-52 w-52 rounded-md border-2 border-primary-700 px-2 text-primary-800 focus:border-primary-200 focus:outline-none focus:ring-0;
+}

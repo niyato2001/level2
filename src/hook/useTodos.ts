@@ -1,26 +1,25 @@
-import { useState } from 'react';
+import { useState, Dispatch, SetStateAction } from 'react';
 
 export interface ToDoProps {
   title: string;
   isCompleted: boolean;
   description: string;
+  id: number;
 }
 
 interface UseTodosReturnType {
   toDos: ToDoProps[];
-  handleClick: () => void;
+  setToDos: Dispatch<SetStateAction<ToDoProps[]>>;
 }
 
-const toDoList: ToDoProps[] = [
-  { title: 'テキスト1', isCompleted: false, description: 'テキスト1' },
-  { title: 'テキスト2', isCompleted: false, description: 'テキスト2' },
-];
+// const toDoList: ToDoProps[] = [
+//   { title: 'テキスト1', isCompleted: false, description: 'テキスト1', id: -2 },
+//   { title: 'テキスト2', isCompleted: false, description: 'テキスト2', id: -1 },
+// ];
 
 export const useTodos = (): UseTodosReturnType => {
-  const initialToDos = [...toDoList];
-  const [toDos, setToDos] = useState<ToDoProps[]>(initialToDos);
-  const handleClick = () => {
-    setToDos([...toDos, { title: '新規', isCompleted: false, description: '新規' }]);
-  };
-  return { toDos, handleClick };
+  // const initialToDos = [...toDoList];
+  const [toDos, setToDos] = useState<ToDoProps[]>([]);
+
+  return { toDos, setToDos };
 };

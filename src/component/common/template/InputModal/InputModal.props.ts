@@ -1,17 +1,15 @@
 import { deleteDeepProps } from '../../part/Icon/Icon.props';
-import { InputModalProps } from './InputModal';
+import { InputModalDataProps } from '@/component/common/template/InputModal/InputModal.type';
 
-const defaultProps: InputModalProps = {
-  type: 'create',
+const defaultProps: InputModalDataProps = {
   deleteDeepIcon: deleteDeepProps,
 };
 
-const updateProps: InputModalProps = {
-  type: 'update',
+const updateProps: InputModalDataProps = {
   deleteDeepIcon: deleteDeepProps,
 };
 
-export const propObj: { [key: string]: InputModalProps } = {
+export const propObj: { [key: string]: InputModalDataProps } = {
   default: defaultProps,
   update: updateProps,
 };

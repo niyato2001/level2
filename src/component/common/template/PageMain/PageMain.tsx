@@ -1,45 +1,98 @@
-import { Card, CardProps } from '../Card/Card';
-import { DescriptionModal, DescriptionModalProps } from '../DescriptionModal/DescriptionModal';
-import { InputModal, InputModalProps } from '../InputModal/InputModal';
-import { useModal } from '@/hook/useModal';
-
-export interface PageMainProps {
-  toDoCard: CardProps;
-  completedCard: CardProps;
-  descriptionModal: DescriptionModalProps;
-  createModal: InputModalProps;
-  updateModal: InputModalProps;
-}
+import { Card } from '../Card/index';
+import { DeleteModal } from '../DeleteModal';
+import { DescriptionModal } from '../DescriptionModal/';
+import { InputModal } from '../InputModal';
+import { PageMainPresenterProps } from './PageMain.type';
 
 export const baseId = 'common-template-page-main';
 
-export const PageMain: React.FC<PageMainProps> = ({
+export const PageMain: React.FC<PageMainPresenterProps> = ({
   toDoCard,
   completedCard,
   descriptionModal,
   createModal,
   updateModal,
-}) => {
-  const { modal, descriptionClick, clearModal, createClick, updateClick } = useModal();
-  return (
-    <div className='relative flex w-[420px] flex-col gap-y-5 bg-primary-50 p-8'>
-      <span className='text-lg font-bold text-primary-700'>For what you wanna do!!</span>
-      <Card {...toDoCard} />
-      <Card {...completedCard} />
-      <button className='btn green-gradient' onClick={descriptionClick}>
-        description
-      </button>
-      <button className='btn green-gradient' onClick={createClick}>
-        create
-      </button>
-      <button className='btn green-gradient' onClick={updateClick}>
-        update
-      </button>
-      {modal === 'description' && (
-        <DescriptionModal {...descriptionModal} clearModal={clearModal} />
-      )}
-      {modal === 'create' && <InputModal {...createModal} clearModal={clearModal} />}
-      {modal === 'update' && <InputModal {...updateModal} clearModal={clearModal} />}
-    </div>
-  );
-};
+  toDos,
+  createClick,
+  descriptionClick,
+  updateSetClick,
+  deleteSetClick,
+  clearModal,
+  setToDos,
+  modal,
+  selectToDo,
+  setSelectToDo,
+  onCreateClick,
+  onUpdateClick,
+  formState,
+  handleInput,
+}) => (
+  <div className='relative flex w-[420px] flex-col gap-y-5 bg-primary-50 p-8'>
+    <span className='text-lg font-bold text-primary-700'>For what you wanna do!!</span>
+    <Card
+      type='TO DO'
+      {...toDoCard}
+      toDos={toDos}
+      handleClick={createClick}
+      descriptionClick={descriptionClick}
+      setSelectToDo={setSelectToDo}
+      selectToDo={selectToDo}
+      setToDos={setToDos}
+    />
+    <Card
+      type='COMPLETED'
+      {...completedCard}
+      toDos={toDos}
+      handleClick={createClick}
+      descriptionClick={descriptionClick}
+      setSelectToDo={setSelectToDo}
+      selectToDo={selectToDo}
+      setToDos={setToDos}
+    />
+
+    {modal === 'description' && (
+      <DescriptionModal
+        {...descriptionModal}
+        updateSetClick={updateSetClick}
+        deleteSetClick={deleteSetClick}
+        clearModal={clearModal}
+        toDo={toDos[Number(selectToDo)]}
+      />
+    )}
+    {modal === 'create' && (
+      <InputModal
+        formState={formState}
+        handleInput={handleInput}
+        onCreateClick={onCreateClick}
+        onUpdateClick={onUpdateClick}
+        type='create'
+        {...createModal}
+        clearModal={clearModal}
+        toDos={toDos}
+        setToDos={setToDos}
+      />
+    )}
+    {modal === 'update' && (
+      <InputModal
+        formState={formState}
+        handleInput={handleInput}
+        onCreateClick={onCreateClick}
+        onUpdateClick={onUpdateClick}
+        type='update'
+        {...updateModal}
+        clearModal={clearModal}
+        toDos={toDos}
+        setToDos={setToDos}
+      />
+    )}
+    {modal === 'delete' && (
+      <DeleteModal
+        clearModal={clearModal}
+        descriptionClick={descriptionClick}
+        toDos={toDos}
+        setToDos={setToDos}
+        selectToDo={selectToDo}
+      />
+    )}
+  </div>
+);
