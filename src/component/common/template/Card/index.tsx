@@ -13,13 +13,15 @@ const Card: React.FC<CardContainerProps> = ({
   setToDos,
 }) => {
   const selectClick = (i: number): void => {
-    setSelectToDo(`${i}`);
+    const index: number = toDos.findIndex((v) => v.id === i);
+    setSelectToDo(`${index}`);
     descriptionClick();
     console.log(selectToDo);
   };
   const handleCheck = (checked: boolean, i: number): void => {
     const newToDos: ToDoProps[] = [...toDos];
-    newToDos[i] = { ...newToDos[i], isCompleted: checked };
+    const index: number = newToDos.findIndex((v) => v.id === i);
+    newToDos[index] = { ...newToDos[index], isCompleted: checked };
     setToDos(newToDos);
   };
   const logicProps: LogicProps = {

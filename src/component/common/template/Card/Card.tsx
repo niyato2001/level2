@@ -24,16 +24,18 @@ export const Card: React.FC<CardPresenterProps> = ({
             </div>
             {toDos
               .filter((v) => v.isCompleted === false)
-              .map((toDo, i) => (
-                <div className='flex items-center gap-x-3' key={i}>
+              .map((toDo) => (
+                <div className='flex items-center gap-x-3' key={toDo.id}>
                   <input
                     type='checkbox'
                     className='rounded-sm border-primary-700 text-primary-700 focus:ring-transparent'
                     checked={toDo.isCompleted}
-                    onChange={(e) => handleCheck(e.target.checked, i)}
+                    onChange={(e) => handleCheck(e.target.checked, toDo.id)}
                   />
-
-                  <button className='font-bold text-primary-700' onClick={() => selectClick(i)}>
+                  <button
+                    className='font-bold text-primary-700'
+                    onClick={() => selectClick(toDo.id)}
+                  >
                     {toDo.title}
                   </button>
                 </div>
@@ -52,23 +54,24 @@ export const Card: React.FC<CardPresenterProps> = ({
               </span> */}
               {/* completedに直接追加することは考えにくいので消去 */}
             </div>
-            {toDos &&
-              toDos
-                .filter((v) => v.isCompleted === true)
-                .map((toDo, i) => (
-                  <div className='flex items-center gap-x-3' key={i}>
-                    <input
-                      type='checkbox'
-                      className='rounded-sm border-primary-700 text-primary-700 focus:ring-transparent'
-                      checked={toDo.isCompleted}
-                      onChange={(e) => handleCheck(e.target.checked, i)}
-                    />
-
-                    <button className='font-bold text-primary-700' onClick={() => selectClick(i)}>
-                      {toDo.title}
-                    </button>
-                  </div>
-                ))}
+            {toDos
+              .filter((v) => v.isCompleted === true)
+              .map((toDo) => (
+                <div className='flex items-center gap-x-3' key={toDo.id}>
+                  <input
+                    type='checkbox'
+                    className='rounded-sm border-primary-700 text-primary-700 focus:ring-transparent'
+                    checked={toDo.isCompleted}
+                    onChange={(e) => handleCheck(e.target.checked, toDo.id)}
+                  />
+                  <button
+                    className='font-bold text-primary-700'
+                    onClick={() => selectClick(toDo.id)}
+                  >
+                    {toDo.title}
+                  </button>
+                </div>
+              ))}
           </div>
         </div>
       );
