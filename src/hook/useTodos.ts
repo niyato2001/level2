@@ -4,6 +4,7 @@ export interface ToDoProps {
   title: string;
   isCompleted: boolean;
   description: string;
+  id: number;
 }
 
 interface UseTodosReturnType {
@@ -12,8 +13,8 @@ interface UseTodosReturnType {
 }
 
 const toDoList: ToDoProps[] = [
-  { title: 'テキスト1', isCompleted: false, description: 'テキスト1' },
-  { title: 'テキスト2', isCompleted: false, description: 'テキスト2' },
+  { title: 'テキスト1', isCompleted: false, description: 'テキスト1', id: -2 },
+  { title: 'テキスト2', isCompleted: false, description: 'テキスト2', id: -1 },
 ];
 
 export const useTodos = (): UseTodosReturnType => {
