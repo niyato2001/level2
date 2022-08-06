@@ -11,6 +11,7 @@ export interface CardPresenterProps extends CardDataProps {
   toDos: ToDoProps[];
   handleClick: () => void;
   selectClick: (i: number) => void;
+  handleCheck: (checked: boolean, i: number) => void;
 }
 
 export interface CardContainerProps {
@@ -20,6 +21,7 @@ export interface CardContainerProps {
   descriptionClick: () => void;
   setSelectToDo: Dispatch<SetStateAction<string>>;
   selectToDo: string;
+  setToDos: Dispatch<SetStateAction<ToDoProps[]>>;
 }
 
 export interface LogicProps {
@@ -27,4 +29,5 @@ export interface LogicProps {
   toDos: ToDoProps[];
   handleClick: () => void;
   selectClick: (i: number) => void;
+  handleCheck: (checked: boolean, i: number) => void;
 }

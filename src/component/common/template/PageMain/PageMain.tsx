@@ -37,6 +37,7 @@ export const PageMain: React.FC<PageMainPresenterProps> = ({
       descriptionClick={descriptionClick}
       setSelectToDo={setSelectToDo}
       selectToDo={selectToDo}
+      setToDos={setToDos}
     />
     <Card
       type='COMPLETED'
@@ -46,6 +47,7 @@ export const PageMain: React.FC<PageMainPresenterProps> = ({
       descriptionClick={descriptionClick}
       setSelectToDo={setSelectToDo}
       selectToDo={selectToDo}
+      setToDos={setToDos}
     />
 
     {modal === 'description' && (

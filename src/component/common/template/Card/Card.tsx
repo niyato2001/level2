@@ -9,6 +9,7 @@ export const Card: React.FC<CardPresenterProps> = ({
   toDos,
   handleClick,
   selectClick,
+  handleCheck,
 }) => {
   switch (type) {
     case 'TO DO':
@@ -28,7 +29,8 @@ export const Card: React.FC<CardPresenterProps> = ({
                   <input
                     type='checkbox'
                     className='rounded-sm border-primary-700 text-primary-700 focus:ring-transparent'
-                    defaultChecked={toDo.isCompleted}
+                    checked={toDo.isCompleted}
+                    onChange={(e) => handleCheck(e.target.checked, i)}
                   />
 
                   <button className='font-bold text-primary-700' onClick={() => selectClick(i)}>
@@ -58,9 +60,13 @@ export const Card: React.FC<CardPresenterProps> = ({
                     <input
                       type='checkbox'
                       className='rounded-sm border-primary-700 text-primary-700 focus:ring-transparent'
-                      defaultChecked={toDo.isCompleted}
+                      checked={toDo.isCompleted}
+                      onChange={(e) => handleCheck(e.target.checked, i)}
                     />
-                    <span className='font-bold text-primary-700'>{toDo.title}</span>
+
+                    <button className='font-bold text-primary-700' onClick={() => selectClick(i)}>
+                      {toDo.title}
+                    </button>
                   </div>
                 ))}
           </div>
