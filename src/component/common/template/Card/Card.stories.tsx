@@ -18,4 +18,8 @@ ToDo.args = {
   toDos: [{ isCompleted: false, title: 'name', description: 'description', id: -1 }],
 };
 export const Completed = Template.bind({});
-Completed.args = { ...propObj.completed, type: 'COMPLETED' };
+Completed.args = {
+  ...propObj.completed,
+  type: 'COMPLETED',
+  toDos: [{ isCompleted: false, title: 'name', description: 'description', id: -1 }],
+};
