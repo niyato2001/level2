@@ -13,5 +13,5 @@ const Template: Story<PageMainPresenterProps> = (args) => <PageMain {...args} />
 export const Default = Template.bind({});
 Default.args = {
   ...propObj.default,
-  toDos: [{ isCompleted: false, title: 'name', description: 'description' }],
+  toDos: [{ isCompleted: false, title: 'name', description: 'description', id: -1 }],
 };

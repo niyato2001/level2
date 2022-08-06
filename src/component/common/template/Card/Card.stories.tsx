@@ -15,7 +15,7 @@ export const ToDo = Template.bind({});
 ToDo.args = {
   createLightIcon: createLightProps,
   type: 'TO DO',
-  toDos: [{ isCompleted: false, title: 'name', description: 'description' }],
+  toDos: [{ isCompleted: false, title: 'name', description: 'description', id: -1 }],
 };
 export const Completed = Template.bind({});
 Completed.args = { ...propObj.completed, type: 'COMPLETED' };

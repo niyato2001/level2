@@ -14,7 +14,7 @@ export const Default = Template.bind({});
 Default.args = {
   type: 'create',
   ...propObj.default,
-  formState: { title: '', description: '', isCompleted: false },
+  formState: { title: '', description: '', isCompleted: false, id: -1 },
 };
 export const Update = Template.bind({});
 Update.args = { type: 'update', ...propObj.update };

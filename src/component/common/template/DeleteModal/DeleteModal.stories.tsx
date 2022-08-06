@@ -13,5 +13,10 @@ const Template: Story<DeleteModalPresenterProps> = (args) => <DeleteModal {...ar
 export const Default = Template.bind({});
 Default.args = {
   ...propObj.default,
-  toDo: { title: '経営の必読書を読む', description: '起業のファイナンス', isCompleted: false },
+  toDo: {
+    title: '経営の必読書を読む',
+    description: '起業のファイナンス',
+    isCompleted: false,
+    id: -1,
+  },
 };
