@@ -12,14 +12,14 @@ interface UseTodosReturnType {
   setToDos: Dispatch<SetStateAction<ToDoProps[]>>;
 }
 
-const toDoList: ToDoProps[] = [
-  { title: 'テキスト1', isCompleted: false, description: 'テキスト1', id: -2 },
-  { title: 'テキスト2', isCompleted: false, description: 'テキスト2', id: -1 },
-];
+// const toDoList: ToDoProps[] = [
+//   { title: 'テキスト1', isCompleted: false, description: 'テキスト1', id: -2 },
+//   { title: 'テキスト2', isCompleted: false, description: 'テキスト2', id: -1 },
+// ];
 
 export const useTodos = (): UseTodosReturnType => {
-  const initialToDos = [...toDoList];
-  const [toDos, setToDos] = useState<ToDoProps[]>(initialToDos);
+  // const initialToDos = [...toDoList];
+  const [toDos, setToDos] = useState<ToDoProps[]>([]);
 
   return { toDos, setToDos };
 };
