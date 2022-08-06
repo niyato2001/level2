@@ -13,13 +13,13 @@ const DeleteModal: React.FC<DeleteModalContainerProps> = ({
   toDos,
   setToDos,
   selectToDo,
-  toDo,
 }) => {
   const onDeleteClick = (): void => {
     const newToDos: ToDoProps[] = [...toDos];
     setToDos(newToDos.filter((v) => v !== newToDos[Number(selectToDo)]));
     clearModal();
   };
+  const toDo: ToDoProps = toDos[Number(selectToDo)];
   const logicProps: DeleteModalLogicProps = {
     clearModal: clearModal,
     descriptionClick: descriptionClick,

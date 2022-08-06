@@ -19,7 +19,6 @@ export interface DeleteModalContainerProps {
   toDos: ToDoProps[];
   setToDos: Dispatch<SetStateAction<ToDoProps[]>>;
   selectToDo: string;
-  toDo: ToDoProps;
 }
 
 export interface DeleteModalLogicProps {
