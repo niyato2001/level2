@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { PageMain as PageMainPresenter } from './PageMain';
 import { propObj } from './PageMain.props';
 import { PageMainDataProps, PageMainLogicProps } from './PageMain.type';
@@ -13,13 +14,19 @@ const PageMain: React.FC = () => {
   const { toDos, setToDos } = useTodos();
   const { selectToDo, setSelectToDo } = useSelectToDo();
   const { formState, setFormState, initialForm, handleInput } = useFormState(id);
+  useEffect(() => {
+    console.log(id);
+  }, [id]);
   const onCreateClick = (): void => {
-    const newToDos = [...toDos];
-    setToDos([...newToDos, { ...formState }]);
+    const newToDos = [...toDos, { ...formState }];
+    setToDos(newToDos);
     countId();
-    setFormState(initialForm);
     clearModal();
-    console.log(newToDos, id);
+    console.log(newToDos, id, initialForm);
+  };
+  const handleClick = (): void => {
+    createClick();
+    setFormState(initialForm);
   };
   const onUpdateClick = (): void => {
     const newToDos = [...toDos];
@@ -46,7 +53,7 @@ const PageMain: React.FC = () => {
     toDos: toDos,
     descriptionClick: descriptionClick,
     clearModal: clearModal,
-    createClick: createClick,
+    handleClick: handleClick,
     updateSetClick: updateSetClick,
     deleteSetClick: deleteSetClick,
     setToDos: setToDos,
