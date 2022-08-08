@@ -14,7 +14,7 @@ const Home: NextPage<Props> = ({ count, todos }) => {
       isCompleted: false,
       id: 400,
     });
-  console.log(todos);
+
   return (
     <main className='mx-auto w-[420px]'>
       <PageHeader />
