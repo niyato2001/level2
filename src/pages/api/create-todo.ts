@@ -10,7 +10,6 @@ const handler: NextApiHandler = async (req: NextApiRequest, res: NextApiResponse
       });
       res.status(200).json(todo);
     } catch (error) {
-      console.log(error);
       res.status(500).json({ message: 'Something went wrong' });
     }
   } else {
