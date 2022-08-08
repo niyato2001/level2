@@ -41,7 +41,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       count,
       todos: JSON.parse(JSON.stringify(todos)),
     },
-    revalidate: 30,
+    revalidate: 60,
   };
 };
 
