@@ -10,7 +10,7 @@ const Home: NextPage<Props> = ({ count, todos }) => (
     <PageHeader />
     <PageMain todos={todos} />
     {`現在のtodoの数は${count}です`}
-    <div> 最後のtodoのタイトルは{todos[2].description}です</div>
+    {/* <div> 最後のtodoのタイトルは{todos[2].description}です</div> */}
     {/* <button onClick={addHome} className='btn green-gradient'>
       追加
     </button> */}
