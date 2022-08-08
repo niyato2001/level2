@@ -12,7 +12,7 @@ datasource db {
 
 model Todo {
   id          Int     @id @default(autoincrement())
-  title       String  @db.Text
-  description String  @db.Text
-  isCompleted Boolean @default(false) @db.Boolean
+  title       String
+  description String
+  isCompleted Boolean @default(false)
 }
