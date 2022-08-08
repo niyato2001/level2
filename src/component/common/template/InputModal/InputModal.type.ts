@@ -8,10 +8,10 @@ export interface InputModalDataProps {
 
 //Dataに含まれないロジック要素を追加
 export interface InputModalPresenterProps extends InputModalDataProps {
+  onCreateFetch: () => Promise<ToDoProps> & void;
   type: 'create' | 'update';
   clearModal: () => void;
   onClearModal: () => void;
-  onCreateClick: () => void;
   onUpdateClick: () => void;
   formState: ToDoProps;
   handleInput: (key: string, value: string) => void;
@@ -33,10 +33,10 @@ export interface InputModalContainerProps {
 
 //Container内部で新たに生じたLogicの型定義
 export interface InputModalLogicProps {
+  onCreateFetch: () => Promise<ToDoProps> & void;
   type: 'create' | 'update';
   clearModal: () => void;
   onClearModal: () => void;
-  onCreateClick: () => void;
   onUpdateClick: () => void;
   handleInput: (key: string, value: string) => void;
   formState: ToDoProps;
