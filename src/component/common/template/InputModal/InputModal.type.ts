@@ -8,7 +8,7 @@ export interface InputModalDataProps {
 
 //Dataに含まれないロジック要素を追加
 export interface InputModalPresenterProps extends InputModalDataProps {
-  onCreateFetch: () => any;
+  onCreateFetch: () => void;
   type: 'create' | 'update';
   clearModal: () => void;
   onClearModal: () => void;
@@ -33,7 +33,7 @@ export interface InputModalContainerProps {
 
 //Container内部で新たに生じたLogicの型定義
 export interface InputModalLogicProps {
-  onCreateFetch: () => any;
+  onCreateFetch: () => void;
   type: 'create' | 'update';
   clearModal: () => void;
   onClearModal: () => void;

@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 import { InputModal as InputModalPresenter } from './InputModal';
 import { propObj } from './InputModal.props';
 import {
@@ -21,10 +21,14 @@ const InputModal: React.FC<InputModalContainerProps> = ({
   // PageMainでformStateの管理をすると、InputModalを消したあとに再び開くとformStateが維持されているがInputModalで管理するとModalを消すと消える。
   // PageMainでformStateの管理をすると、InputModalにバケツリレーするが、その際にInputModalPropsでhandleInput?:とオプショナルを指定すると、undefinedとなりInputModal.propsの中身と齟齬が生じる
   // 結果としてInputModalで状態管理をすることとした。
-  const onCreateFetch = () => {
-    axios
-      .post('/api/create-todo', { ...formState })
-      .then((response: AxiosResponse<ToDoProps>) => onCreateClick(response.data));
+  const onCreateFetch = (): void => {
+    try {
+      axios
+        .post<ToDoProps>('/api/create-todo', { ...formState })
+        .then((response) => onCreateClick(response.data));
+    } catch (error) {
+      console.log('登録できませんでした！');
+    }
   };
 
   const onClearModal = (): void => clearModal();
