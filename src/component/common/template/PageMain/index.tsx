@@ -6,7 +6,7 @@ import { useFormState } from '@/hook/useFormState';
 import { useId } from '@/hook/useId';
 import { useModal } from '@/hook/useModal';
 import { useSelectToDo } from '@/hook/useSelectToDo';
-import { useTodos } from '@/hook/useTodos';
+import { ToDoProps, useTodos } from '@/hook/useTodos';
 
 const PageMain: React.FC<PageMainContainerProps> = ({ todos }) => {
   const { id, countId } = useId();
@@ -17,8 +17,8 @@ const PageMain: React.FC<PageMainContainerProps> = ({ todos }) => {
   useLayoutEffect(() => {
     setToDos(todos);
   }, [setToDos, todos]);
-  const onCreateClick = (): void => {
-    const newToDos = [...toDos, { ...formState }];
+  const onCreateClick = (response: ToDoProps): void => {
+    const newToDos = [...toDos, { ...response }];
     setToDos(newToDos);
     countId();
     clearModal();
