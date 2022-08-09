@@ -22,13 +22,13 @@ const InputModal: React.FC<InputModalContainerProps> = ({
   // PageMainでformStateの管理をすると、InputModalにバケツリレーするが、その際にInputModalPropsでhandleInput?:とオプショナルを指定すると、undefinedとなりInputModal.propsの中身と齟齬が生じる
   // 結果としてInputModalで状態管理をすることとした。
   const onCreateFetch = (): void => {
-    try {
-      axios
-        .post<ToDoProps>('/api/create-todo', { ...formState })
-        .then((response) => onCreateClick(response.data));
-    } catch (error) {
-      console.log('登録できませんでした！');
-    }
+    axios
+      .post<ToDoProps>('/api/create-todo', { ...formState })
+      .then((response) => onCreateClick(response.data))
+      .catch((error) => {
+        console.log('登録できませんでした！');
+        console.log(error.message);
+      });
   };
 
   const onClearModal = (): void => clearModal();
