@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { Card as CardPresenter } from './Card';
 import { propObj } from './Card.props';
 import { CardContainerProps, CardDataProps, LogicProps } from './Card.type';
@@ -18,18 +19,28 @@ const Card: React.FC<CardContainerProps> = ({
     descriptionClick();
     console.log(selectToDo);
   };
-  const handleCheck = (checked: boolean, i: number): void => {
-    const newToDos: ToDoProps[] = [...toDos];
-    const index: number = newToDos.findIndex((v) => v.id === i);
-    newToDos[index] = { ...newToDos[index], isCompleted: checked };
+  const newToDos: ToDoProps[] = [...toDos];
+  const handleCheck = (response: ToDoProps, i: number): void => {
+    newToDos[i] = { ...response };
     setToDos(newToDos);
   };
+  const handleCheckFetch = async (checked: boolean, i: number): Promise<void> => {
+    const index: number = newToDos.findIndex((v) => v.id === i);
+    axios
+      .patch<ToDoProps>('/api/update-delete-todo', { ...newToDos[index], isCompleted: checked })
+      .then((response) => handleCheck(response.data, index))
+      .catch((error) => {
+        console.log('更新できませんでした！');
+        console.log(error.message);
+      });
+  };
+
   const logicProps: LogicProps = {
     type: type,
     toDos: toDos,
     handleClick: handleClick,
     selectClick: selectClick,
-    handleCheck: handleCheck,
+    handleCheckFetch: handleCheckFetch,
   };
   const defaultProps: CardDataProps = { ...propObj.toDo };
   return <CardPresenter {...defaultProps} {...logicProps} />;
