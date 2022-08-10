@@ -9,7 +9,7 @@ export interface DeleteModalDataProps {
 export interface DeleteModalPresenterProps extends DeleteModalDataProps {
   clearModal: () => void;
   descriptionClick: () => void;
-  onDeleteClick: () => void;
+  onDeleteFetch: () => void;
   toDo: ToDoProps;
 }
 
@@ -24,6 +24,6 @@ export interface DeleteModalContainerProps {
 export interface DeleteModalLogicProps {
   clearModal: () => void;
   descriptionClick: () => void;
-  onDeleteClick: () => void;
+  onDeleteFetch: () => void;
   toDo: ToDoProps;
 }
