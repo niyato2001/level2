@@ -9,7 +9,7 @@ export const InputModal: React.FC<InputModalPresenterProps> = ({
   deleteDeepIcon,
   clearModal,
   onClearModal,
-  onUpdateClick,
+  onUpdateFetch,
   handleInput,
   formState,
 }) => {
@@ -77,7 +77,7 @@ export const InputModal: React.FC<InputModalPresenterProps> = ({
                   />
                 </form>
                 <div className='text-right'>
-                  <button className='btn green-gradient' onClick={onUpdateClick}>
+                  <button className='btn green-gradient' onClick={onUpdateFetch}>
                     更新
                   </button>
                 </div>

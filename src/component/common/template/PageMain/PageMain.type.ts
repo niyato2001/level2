@@ -14,7 +14,7 @@ export interface PageMainDataProps {
 
 export interface PageMainPresenterProps extends PageMainDataProps {
   onCreateClick: (response: ToDoProps) => void;
-  onUpdateClick: () => void;
+  onUpdateClick: (response: ToDoProps) => void;
   formState: ToDoProps;
   handleInput: (key: string, value: string) => void;
   toDos: ToDoProps[];
@@ -40,7 +40,7 @@ export interface PageMainContainerProps {
 export interface PageMainLogicProps {
   countId: () => void;
   onCreateClick: (response: ToDoProps) => void;
-  onUpdateClick: () => void;
+  onUpdateClick: (response: ToDoProps) => void;
   formState: ToDoProps;
   handleInput: (key: string, value: string) => void;
   modal: string;

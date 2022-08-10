@@ -12,7 +12,7 @@ export interface InputModalPresenterProps extends InputModalDataProps {
   type: 'create' | 'update';
   clearModal: () => void;
   onClearModal: () => void;
-  onUpdateClick: () => void;
+  onUpdateFetch: () => void;
   formState: ToDoProps;
   handleInput: (key: string, value: string) => void;
 }
@@ -24,7 +24,7 @@ export interface InputModalContainerProps {
   toDos: ToDoProps[];
   setToDos: Dispatch<SetStateAction<ToDoProps[]>>;
   onCreateClick: (response: ToDoProps) => void;
-  onUpdateClick: () => void;
+  onUpdateClick: (response: ToDoProps) => void;
   formState: ToDoProps;
   handleInput: (key: string, value: string) => void;
 }
@@ -37,7 +37,7 @@ export interface InputModalLogicProps {
   type: 'create' | 'update';
   clearModal: () => void;
   onClearModal: () => void;
-  onUpdateClick: () => void;
+  onUpdateFetch: () => void;
   handleInput: (key: string, value: string) => void;
   formState: ToDoProps;
   toDos: ToDoProps[];

@@ -28,9 +28,9 @@ const PageMain: React.FC<PageMainContainerProps> = ({ todos }) => {
     createClick();
     setFormState(initialForm);
   };
-  const onUpdateClick = (): void => {
+  const onUpdateClick = (response: ToDoProps): void => {
     const newToDos = [...toDos];
-    newToDos[Number(selectToDo)] = { ...formState };
+    newToDos[Number(selectToDo)] = { ...response };
     setToDos([...newToDos]);
     setFormState(initialForm);
     clearModal();

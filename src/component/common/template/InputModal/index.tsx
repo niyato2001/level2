@@ -32,15 +32,23 @@ const InputModal: React.FC<InputModalContainerProps> = ({
   };
 
   const onClearModal = (): void => clearModal();
-
+  const onUpdateFetch = (): void => {
+    axios
+      .patch<ToDoProps>('/api/update-delete-todo', { ...formState })
+      .then((response) => onUpdateClick(response.data))
+      .catch((error) => {
+        console.log('更新できませんでした！');
+        console.log(error.message);
+      });
+  };
   // 関数をpropsで親要素から子要素に受け継ぐ場合には子要素であらためて関数を定義する必要がある！
   const logicProps: InputModalLogicProps = {
+    onUpdateFetch: onUpdateFetch,
     onCreateFetch: onCreateFetch,
     type: type,
     handleInput: handleInput,
     clearModal: clearModal,
     onClearModal: onClearModal,
-    onUpdateClick: onUpdateClick,
     formState: formState,
     toDos: toDos,
     setToDos: setToDos,
