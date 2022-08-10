@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { DeleteModal as DeleteModalPresenter } from './DeleteModal';
 import { propObj } from './DeleteModal.props';
 import {
@@ -14,16 +15,26 @@ const DeleteModal: React.FC<DeleteModalContainerProps> = ({
   setToDos,
   selectToDo,
 }) => {
+  const newToDos: ToDoProps[] = [...toDos];
+  const deleteToDo: ToDoProps = newToDos[Number(selectToDo)];
   const onDeleteClick = (): void => {
-    const newToDos: ToDoProps[] = [...toDos];
-    setToDos(newToDos.filter((v) => v !== newToDos[Number(selectToDo)]));
+    setToDos(newToDos.filter((v) => v !== deleteToDo));
     clearModal();
+  };
+  const onDeleteFetch = (): void => {
+    axios
+      .delete<ToDoProps>('/api/update-delete-todo', { data: { id: deleteToDo.id } })
+      .then(() => onDeleteClick())
+      .catch((error) => {
+        console.log('削除できませんでした！');
+        console.log(error.message);
+      });
   };
   const toDo: ToDoProps = toDos[Number(selectToDo)];
   const logicProps: DeleteModalLogicProps = {
     clearModal: clearModal,
     descriptionClick: descriptionClick,
-    onDeleteClick: onDeleteClick,
+    onDeleteFetch: onDeleteFetch,
     toDo: toDo,
   };
   const defaultProps: DeleteModalDataProps = { ...propObj.default };

@@ -4,12 +4,12 @@ import { InputModalPresenterProps } from '@/component/common/template/InputModal
 export const baseId = 'common-template-input-modal';
 
 export const InputModal: React.FC<InputModalPresenterProps> = ({
+  onCreateFetch,
   type,
   deleteDeepIcon,
   clearModal,
   onClearModal,
-  onCreateClick,
-  onUpdateClick,
+  onUpdateFetch,
   handleInput,
   formState,
 }) => {
@@ -41,7 +41,7 @@ export const InputModal: React.FC<InputModalPresenterProps> = ({
                   />
                 </form>
                 <div className='text-right'>
-                  <button className='btn green-gradient' onClick={onCreateClick}>
+                  <button className='btn green-gradient' onClick={onCreateFetch}>
                     新規追加
                   </button>
                 </div>
@@ -77,7 +77,7 @@ export const InputModal: React.FC<InputModalPresenterProps> = ({
                   />
                 </form>
                 <div className='text-right'>
-                  <button className='btn green-gradient' onClick={onUpdateClick}>
+                  <button className='btn green-gradient' onClick={onUpdateFetch}>
                     更新
                   </button>
                 </div>

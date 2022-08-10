@@ -13,12 +13,12 @@ export interface PageMainDataProps {
 }
 
 export interface PageMainPresenterProps extends PageMainDataProps {
-  onCreateClick: () => void;
-  onUpdateClick: () => void;
+  onCreateClick: (response: ToDoProps) => void;
+  onUpdateClick: (response: ToDoProps) => void;
   formState: ToDoProps;
   handleInput: (key: string, value: string) => void;
   toDos: ToDoProps[];
-  createClick: () => void;
+  handleClick: () => void;
   descriptionClick: () => void;
   updateSetClick: () => void;
   deleteSetClick: () => void;
@@ -29,29 +29,18 @@ export interface PageMainPresenterProps extends PageMainDataProps {
   setSelectToDo: Dispatch<SetStateAction<string>>;
 }
 
-// 親コンポーネントから受け継ぐ要素は今のところないが必要そう
-// export interface PageMainContainerProps extends PageMainDataProps {
-//   onCreateClick: () => void;
-//   formState: ToDoProps;
-//   handleInput: (key: string, value: string) => void;
-//   toDos: ToDoProps[];
-//   createClick: () => void;
-//   descriptionClick: () => void;
-//   updateClick: () => void;
-//   clearModal: () => void;
-//   setToDos: Dispatch<SetStateAction<ToDoProps[]>>;
-//   modal: string;
-//   selectToDo: string;
-//   setSelectToDo: Dispatch<SetStateAction<string>>;
-// }
+// 親コンポーネントから受け継ぐ要素は今のところないが必要そう;
+export interface PageMainContainerProps {
+  todos: ToDoProps[];
+}
 
 // Storybook用のすべてを含んだ型はPageMainPresenterPropsに含まれるが必要そう→不要
 
 //Container内部で新たに生じたLogicの型定義
 export interface PageMainLogicProps {
   countId: () => void;
-  onCreateClick: () => void;
-  onUpdateClick: () => void;
+  onCreateClick: (response: ToDoProps) => void;
+  onUpdateClick: (response: ToDoProps) => void;
   formState: ToDoProps;
   handleInput: (key: string, value: string) => void;
   modal: string;
@@ -59,7 +48,7 @@ export interface PageMainLogicProps {
   setToDos: Dispatch<SetStateAction<ToDoProps[]>>;
   clearModal: () => void;
   descriptionClick: () => void;
-  createClick: () => void;
+  handleClick: () => void;
   updateSetClick: () => void;
   deleteSetClick: () => void;
   selectToDo: string;

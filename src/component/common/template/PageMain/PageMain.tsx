@@ -13,7 +13,7 @@ export const PageMain: React.FC<PageMainPresenterProps> = ({
   createModal,
   updateModal,
   toDos,
-  createClick,
+  handleClick,
   descriptionClick,
   updateSetClick,
   deleteSetClick,
@@ -33,7 +33,7 @@ export const PageMain: React.FC<PageMainPresenterProps> = ({
       type='TO DO'
       {...toDoCard}
       toDos={toDos}
-      handleClick={createClick}
+      handleClick={handleClick}
       descriptionClick={descriptionClick}
       setSelectToDo={setSelectToDo}
       selectToDo={selectToDo}
@@ -43,7 +43,7 @@ export const PageMain: React.FC<PageMainPresenterProps> = ({
       type='COMPLETED'
       {...completedCard}
       toDos={toDos}
-      handleClick={createClick}
+      handleClick={handleClick}
       descriptionClick={descriptionClick}
       setSelectToDo={setSelectToDo}
       selectToDo={selectToDo}
